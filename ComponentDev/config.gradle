@@ -1,0 +1,40 @@
+/**
+ * gradle配置
+ * 加载方式 - 在工程build.gradle文件buildscript节点下添加：apply from: 'config.gradle'
+ * 用于统一配置各module的构建版本、库版本等
+ */
+
+/*********************************************** 以下为构建版本配置 ***********************************************/
+def buildVersions = [:]
+buildVersions.minSdk = 15
+buildVersions.targetSdk = 27
+buildVersions.compileSdk = 27
+buildVersions.buildTools = "27.1.1"
+ext.buildVersions = buildVersions
+
+/*********************************************** 以下为库版本配置 ***********************************************/
+def versions = [:]
+versions.support = "27.1.1"
+versions.constraint_layout = "1.1.2"
+
+def deps = [:]
+/*********************************************** 以下为依赖配置 ***********************************************/
+def support = [:]
+support.appcompat_v7 = "com.android.support:appcompat-v7:$versions.support"
+support.constraint = "com.android.support.constraint:constraint-layout:$versions.constraint_layout"
+
+deps.support = support
+
+
+
+
+
+
+
+
+
+
+
+
+
+ext.deps = deps
