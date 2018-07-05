@@ -21,5 +21,5 @@ android {
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation deps.support.appcompat_v7
-    implementation deps.support.constraint
+    implementation deps.view.constraint
 }
