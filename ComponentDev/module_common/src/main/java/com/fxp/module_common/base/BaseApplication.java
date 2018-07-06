@@ -2,6 +2,8 @@ package com.fxp.module_common.base;
 
 import android.app.Application;
 
+import com.fxp.module_common.utils.ContextUtils;
+
 /**
  * Title:       BaseApplication
  * <p>
@@ -11,7 +13,8 @@ import android.app.Application;
  * <p>
  * Create at:   2018/7/5 下午6:21
  * <p>
- * Description:
+ * Description: 提供全局的Context
+ * 作为业务组件和app壳工程中的 Application 的基类
  * <p>
  * <p>
  * Modification History:
@@ -33,6 +36,9 @@ public class BaseApplication extends Application {
         super.onCreate();
 
         instance = this;
+
+        ContextUtils.init(this);
+
     }
 
 
