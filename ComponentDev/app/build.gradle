@@ -22,4 +22,7 @@ dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation deps.support.appcompat_v7
     implementation deps.view.constraint
+
+    implementation project(':module_common')
+
 }
