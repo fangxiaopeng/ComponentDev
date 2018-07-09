@@ -14,6 +14,16 @@ android {
         versionName "1.0"
     }
 
+    sourceSets {
+        main {
+            if (isModule.toBoolean()) {
+                manifest.srcFile 'src/main/module/AndroidManifest.xml'
+            } else {
+                manifest.srcFile 'src/main/AndroidManifest.xml'
+            }
+        }
+    }
+
     buildTypes {
         release {
             minifyEnabled false
@@ -28,4 +38,7 @@ dependencies {
 
     implementation deps.support.appcompat_v7
 
+    implementation project(':module_common')
+
+    implementation 'com.android.support.constraint:constraint-layout:1.1.2'
 }
