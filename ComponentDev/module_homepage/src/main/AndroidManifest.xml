@@ -1,4 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!-- 作为library时，使用此清单文件 -->
+<!-- 在module_homepage build.gradle中配置 -->
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.fxp.module_homepage">
 
