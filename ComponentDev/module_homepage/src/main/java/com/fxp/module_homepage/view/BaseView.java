@@ -7,7 +7,7 @@ import com.fxp.module_homepage.inter.RefreshListener;
 /**
  * Title:       BaseView
  * <p>
- * Package:     com.fxp.module_homepage.ui
+ * Package:     com.fxp.module_homepage.view
  * <p>
  * Author:      fxp
  * <p>
