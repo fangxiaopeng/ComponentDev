@@ -5,12 +5,15 @@ import android.view.View;
 import android.widget.ScrollView;
 
 import com.fxp.module_homepage.R;
+import com.fxp.module_homepage.view.HomePageBlogsView;
+import com.fxp.module_homepage.view.HomePageFooterView;
+import com.fxp.module_homepage.view.HomePageProjectsView;
 import com.fxp.module_homepage.view.HomePageTopView;
 
 /**
  * Title:       HomePageViewController
  * <p>
- * Package:     com.fxp.module_homepage.ui
+ * Package:     com.fxp.module_homepage.controller
  * <p>
  * Author:      fxp
  * <p>
@@ -46,6 +49,16 @@ public class HomePageMainController {
     private void initViews(){
         ScrollView mainView = view.findViewById(R.id.scroll_main);
 
+        // 个人信息
         new HomePageTopView(context, mainView);
+
+        // 开源项目
+        new HomePageProjectsView(context, mainView);
+
+        // 博客文章
+        new HomePageBlogsView(context, mainView);
+
+        // 友情链接
+        new HomePageFooterView(context, mainView);
     }
 }
