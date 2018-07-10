@@ -8,7 +8,7 @@ import com.fxp.module_homepage.inter.RefreshListener;
 /**
  * Title:       HomePageTopView
  * <p>
- * Package:     com.fxp.module_homepage.ui
+ * Package:     com.fxp.module_homepage.view
  * <p>
  * Author:      fxp
  * <p>
