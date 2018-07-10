@@ -24,4 +24,6 @@ dependencies {
 
     implementation deps.support.appcompat_v7
 
+    api deps.support.glide
+
 }
