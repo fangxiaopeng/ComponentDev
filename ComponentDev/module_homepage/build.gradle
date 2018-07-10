@@ -38,7 +38,7 @@ dependencies {
 
     implementation deps.support.appcompat_v7
 
-    implementation project(':module_common')
+    implementation deps.view.constraint
 
-    implementation 'com.android.support.constraint:constraint-layout:1.1.2'
+    implementation project(':module_common')
 }
