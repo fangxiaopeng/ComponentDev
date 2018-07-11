@@ -1,0 +1,40 @@
+{
+    "blog_address":"http://blog.csdn.net/fxp850899969",
+    "article_list":[
+        {
+            "title":"海康摄像头监控视频播放详解",
+            "link":"http://blog.csdn.net/fxp850899969/article/details/79165941",
+            "desc":"本篇文章讲述的是基于海康SDK播放监控视频，包含以下几个方面：1，播放海康视频用到的API详解；2，播放海康视频实践过程详解；3，播放海康视频Cordova插件封装；"
+        },
+        {
+            "title":"JS实现二级列表（包含下拉刷新、上拉加载更多、侧滑操作等）",
+            "link":"http://blog.csdn.net/fxp850899969/article/details/70158440",
+            "desc":"本篇文章讲述的是使用js实现可收缩二级列表，包含以下特性：1，点击打开／收缩二级列表；2，列表下拉刷新数据；3，列表上拉加载更多数据；4，列表item项可侧滑操作（类似于QQ和微信）；5，数据缓存；"
+        },
+        {
+            "title":"echarts3实现柱状图和饼图详解",
+            "link":"http://blog.csdn.net/fxp850899969/article/details/69951013",
+            "desc":"本篇文章实现的是以下两种需求：1，使用Echarts3实现柱状图；2，使用Echarts3实现饼图；包含Echarts使用过程中遇到的部分坑的解决办法。"
+        },
+        {
+            "title":"Cordova插件开发（1）-Android插件开发详解",
+            "link":"http://blog.csdn.net/fxp850899969/article/details/70195569",
+            "desc":"本篇文章讲述的是Android Cordova插件实践过程，具体实现包括以下五个方面：1，实现原生自定义插件类；2，配置Cordova插件；3，注册Cordova插件；4，定义Cordova插件调用方式；5，调用Cordova插件；"
+        },
+        {
+            "title":"Cordova插件开发（2）-Android插件安装包制作详解",
+            "link":"http://blog.csdn.net/fxp850899969/article/details/70740519",
+            "desc":"本篇文章讲述的是如何制作自己的Cordova插件安装包（Android），具体内容包括以下三个方面：1，安装和使用plugman；2，开发自己的Cordova插件安装包；3，插件安装包的安装与卸载；"
+        },
+        {
+            "title":"Cordova插件开发（3）- 将Cordova插件发布到npm",
+            "link":"http://blog.csdn.net/fxp850899969/article/details/79006503",
+            "desc":"本篇文章讲述的是如何将自己开发的cordova插件发布到npm，具体内容包含以下三个方面：1，将插件上传到github；2，将插件发布到npm；3，将npm上的插件与github上同步；"
+        },
+        {
+            "title":" IOS应用分发的三种方式",
+            "link":"http://blog.csdn.net/fxp850899969/article/details/54966133",
+            "desc":"本篇文章讲述的是IOS应用分发三种方式：1，上架到AppStore；2，扫码或者点击链接下载安装；3，放到第三方应用内测分发平台；"
+        }
+    ]
+}
