@@ -1,9 +1,21 @@
 package com.fxp.module_homepage.view;
 
 import android.content.Context;
+import android.util.Log;
 import android.widget.ScrollView;
 
+import com.fxp.module_common.utils.AssetsUtil;
 import com.fxp.module_homepage.inter.RefreshListener;
+import com.fxp.module_homepage.inter.RequestListener;
+import com.google.gson.Gson;
+
+import io.reactivex.Observable;
+import io.reactivex.ObservableEmitter;
+import io.reactivex.ObservableOnSubscribe;
+import io.reactivex.Observer;
+import io.reactivex.android.schedulers.AndroidSchedulers;
+import io.reactivex.disposables.Disposable;
+import io.reactivex.schedulers.Schedulers;
 
 /**
  * Title:       BaseView
@@ -68,6 +80,55 @@ public abstract class BaseView {
         if (refreshListener != null){
             refreshListener.refresh();
         }
+    }
+
+    /**
+     * @Description: 子线程请求数据，请求成功后切回主线程
+     * 将请求结果转换成对象
+     *
+     * @Author:  fxp
+     * @Date:    2018/7/12   上午11:28
+     * @param    url                请求地址
+     * @param    tClass             请求结果类（泛型）
+     * @param    requestListener    请求结果回调
+     * @return   void
+     * @exception/throws
+     */
+    protected <T> void requestData(final String url, final Class<T> tClass, final RequestListener requestListener){
+        Observable.create(new ObservableOnSubscribe<String>() {
+            @Override
+            public void subscribe(ObservableEmitter<String> emitter) throws Exception {
+                try {
+                    emitter.onNext(AssetsUtil.readFile(context, url));
+                }catch (Exception e){
+                    emitter.onError(e);
+                }
+            }
+        }).subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(new Observer<String>() {
+                    @Override
+                    public void onSubscribe(Disposable d) {
+                        Log.i(TAG, "onSubscribe");
+                    }
+
+                    @Override
+                    public void onNext(String value) {
+                        Log.i(TAG, "onNext: " + value);
+                        requestListener.onSuccess(new Gson().fromJson(value, tClass));
+                    }
+
+                    @Override
+                    public void onError(Throwable e) {
+                        Log.e(TAG, "onError" + e.toString());
+                        requestListener.onFailed(e.toString());
+                    }
+
+                    @Override
+                    public void onComplete() {
+                        Log.e(TAG, "onComplete");
+                    }
+                });
     }
 
 }
