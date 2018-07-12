@@ -9,6 +9,8 @@ import com.fxp.module_homepage.inter.RefreshListener;
 import com.fxp.module_homepage.inter.RequestListener;
 import com.fxp.module_homepage.model.UserInfoBean;
 
+import io.reactivex.annotations.NonNull;
+
 /**
  * Title:       HomePageTopView
  * <p>
@@ -98,7 +100,7 @@ public class HomePageTopView extends BaseView implements RefreshListener{
      * @return   void
      * @exception/throws
      */
-    private void updateUI(UserInfoBean userInfoBean){
+    private void updateUI(@NonNull UserInfoBean userInfoBean){
         Log.e(TAG, "updateUI");
 
     }
