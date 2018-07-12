@@ -1,8 +1,10 @@
 package com.fxp.module_homepage.view;
 
 import android.content.Context;
+import android.util.Log;
 import android.widget.ScrollView;
 
+import com.fxp.module_common.utils.AssetsUtil;
 import com.fxp.module_homepage.inter.RefreshListener;
 
 /**
@@ -29,12 +31,8 @@ public class HomePageTopView extends BaseView implements RefreshListener{
 
     private final static String TAG = HomePageTopView.class.getSimpleName();
 
-    private ScrollView mainView;
-
     public HomePageTopView(Context context, ScrollView mainView){
-        super(context);
-
-        this.mainView = mainView;
+        super(context, mainView);
 
     }
 
@@ -50,7 +48,8 @@ public class HomePageTopView extends BaseView implements RefreshListener{
 
     @Override
     protected void initDatas() {
-
+        String data = AssetsUtil.readFile(context, "homepage/api/userInfo.json");
+        Log.e(TAG, data + "");
     }
 
     @Override
