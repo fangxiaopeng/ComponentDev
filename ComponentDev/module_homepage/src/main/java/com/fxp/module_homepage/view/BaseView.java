@@ -126,7 +126,7 @@ public abstract class BaseView {
 
                     @Override
                     public void onComplete() {
-                        Log.e(TAG, "onComplete");
+                        Log.i(TAG, "onComplete");
                     }
                 });
     }
