@@ -44,7 +44,28 @@ public class AssetsUtil {
      * @param filePath 带后缀
      * @return
      */
-    public static String readFile(Context context, String filePath) {
+    public static String readFile(Context context, String filePath) throws Exception{
+        StringBuilder stringBuilder = new StringBuilder();
+        //获得assets资源管理器
+        AssetManager assetManager = context.getResources().getAssets();
+        //使用IO流读取json文件内容
+        BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(assetManager.open(filePath), "utf-8"));
+        String line;
+        while ((line = bufferedReader.readLine()) != null) {
+            stringBuilder.append(line);
+        }
+
+        return stringBuilder.toString();
+    }
+
+    /**
+     * 读取assets目录下文件
+     *
+     * @param context
+     * @param filePath 带后缀
+     * @return
+     */
+    public static String getFile(Context context, String filePath) {
         StringBuilder stringBuilder = new StringBuilder();
         try {
             //获得assets资源管理器
