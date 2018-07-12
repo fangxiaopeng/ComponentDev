@@ -29,15 +29,9 @@ public class HomePageFooterView extends BaseView implements RefreshListener{
 
     private final static String TAG = HomePageFooterView.class.getSimpleName();
 
-    private Context context;
-
-    private ScrollView mainView;
-
     public HomePageFooterView(Context context, ScrollView mainView){
-        super(context);
+        super(context, mainView);
 
-        this.context = context;
-        this.mainView = mainView;
     }
 
     @Override
