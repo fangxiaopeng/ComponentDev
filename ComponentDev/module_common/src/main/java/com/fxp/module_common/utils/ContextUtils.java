@@ -19,6 +19,8 @@ import android.view.View;
  */
 public class ContextUtils {
 
+    private final static String TAG = ContextUtils.class.getSimpleName();
+
     private static Context context;
 
     private ContextUtils() {
@@ -40,7 +42,9 @@ public class ContextUtils {
      * @return ApplicationContext
      */
     public static Context getContext() {
-        if (context != null) return context;
+        if (context != null){
+            return context;
+        }
         throw new NullPointerException("u should init first");
     }
 
