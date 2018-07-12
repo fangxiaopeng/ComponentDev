@@ -26,4 +26,10 @@ dependencies {
 
     api deps.support.glide
 
+    api deps.support.gson
+
+    api deps.reactivex.rxandroid
+
+    api deps.reactivex.rxjava
+
 }
