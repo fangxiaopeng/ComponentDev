@@ -1,6 +1,7 @@
 package com.fxp.module_homepage.view;
 
 import android.content.Context;
+import android.widget.ScrollView;
 
 import com.fxp.module_homepage.inter.RefreshListener;
 
@@ -28,13 +29,17 @@ public abstract class BaseView {
 
     private final static String TAG = BaseView.class.getSimpleName();
 
-    private Context context;
+    protected Context context;
+
+    protected ScrollView mainView;
 
     protected RefreshListener refreshListener;
 
-    public BaseView(Context context){
+    public BaseView(Context context, ScrollView mainView){
 
         this.context = context;
+
+        this.mainView = mainView;
 
         findViews();
 
