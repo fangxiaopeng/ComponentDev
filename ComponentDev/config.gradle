@@ -28,6 +28,9 @@ def deps = [:]
 /*********************************** 依赖配置 - support ***********************************/
 def support = [:]
 support.appcompat_v7 = "com.android.support:appcompat-v7:$versions.support"
+support.v4_compat = "com.android.support:support-compat:$versions.support"
+support.v4_core_utils = "com.android.support:support-core-utils:$versions.support"
+support.v4_fragment = "com.android.support:support-fragment:$versions.support"
 support.glide = "com.github.bumptech.glide:glide:$versions.glide"
 support.gson = "com.google.code.gson:gson:$versions.gson"
 
