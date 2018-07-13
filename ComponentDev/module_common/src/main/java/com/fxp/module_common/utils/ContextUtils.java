@@ -2,16 +2,16 @@ package com.fxp.module_common.utils;
 
 
 import android.app.Activity;
+import android.app.Fragment;
+import android.app.FragmentManager;
+import android.app.FragmentTransaction;
 import android.content.Context;
 import android.content.ContextWrapper;
 import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageManager;
-import android.support.annotation.NonNull;
-import android.support.annotation.StringRes;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentTransaction;
 import android.view.View;
+
+import io.reactivex.annotations.NonNull;
 
 /**
  * ContextUtils初始化相关
@@ -75,7 +75,7 @@ public class ContextUtils {
      * @param id 资源Id
      * @return String
      */
-    public static String getString(@StringRes int id) {
+    public static String getString(int id) {
         return context.getResources().getString(id);
     }
 
