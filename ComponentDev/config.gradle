@@ -35,6 +35,7 @@ deps.support = support
 /*********************************** 依赖配置 - view    ***********************************/
 def view = [:]
 view.constraint = "com.android.support.constraint:constraint-layout:$versions.constraint_layout"
+view.recyclerview = "com.android.support:recyclerview-v7:$versions.support"
 
 deps.view = view
 
