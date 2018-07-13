@@ -25,11 +25,11 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        setContentView(R.layout.homepage_activity_main);
-
         context = ContextUtils.getContext();
 
         view = LayoutInflater.from(this).inflate(R.layout.homepage_activity_main,null);
+
+        setContentView(view);
 
         new HomePageMainController(context, view);
     }
