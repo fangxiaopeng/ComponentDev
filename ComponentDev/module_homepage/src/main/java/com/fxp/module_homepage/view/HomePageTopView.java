@@ -1,6 +1,7 @@
 package com.fxp.module_homepage.view;
 
 import android.content.Context;
+import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.widget.ImageView;
@@ -10,7 +11,9 @@ import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.fxp.module_common.utils.Constants;
+import com.fxp.module_common.utils.GlideUtil;
 import com.fxp.module_homepage.R;
+import com.fxp.module_homepage.adapter.HomePageNavAdapter;
 import com.fxp.module_homepage.inter.RefreshListener;
 import com.fxp.module_homepage.inter.RequestListener;
 import com.fxp.module_homepage.model.UserInfoBean;
@@ -46,6 +49,8 @@ public class HomePageTopView extends BaseView implements RefreshListener{
     private TextView userNameTxt, userDescTxt;
 
     private RecyclerView navRecyclerView;
+
+    private HomePageNavAdapter homePageNavAdapter;
 
     public HomePageTopView(Context context, ScrollView mainView){
         super(context, mainView);
@@ -120,17 +125,30 @@ public class HomePageTopView extends BaseView implements RefreshListener{
      */
     private void updateUI(@NonNull UserInfoBean userInfoBean){
         Log.i(TAG, "updateUI");
-        Glide.with(context).load(R.mipmap.img_user).asBitmap().into(userPhotoImg);
+        GlideUtil.setCircleView(context, R.mipmap.img_user, userPhotoImg);
         userNameTxt.setText(userInfoBean.getUser_name());
         userDescTxt.setText(userInfoBean.getUser_desc());
         updateNavList(userInfoBean);
     }
 
     private void initNavList(){
-
+        LinearLayoutManager layoutManager = new LinearLayoutManager(context);
+        layoutManager.setOrientation(LinearLayoutManager.HORIZONTAL);
+        navRecyclerView.setLayoutManager(layoutManager);
     }
 
+    /**
+     * @Description: 更新导航栏
+     *
+     * @Author:  fxp
+     * @Date:    2018/7/13   上午11:18
+     * @param    userInfoBean
+     * @return   void
+     * @exception/throws
+     */
     private void updateNavList(@NonNull UserInfoBean userInfoBean){
-
+        homePageNavAdapter = new HomePageNavAdapter(context, userInfoBean.getUser_nav());
+        navRecyclerView.setAdapter(homePageNavAdapter);
     }
+
 }
