@@ -22,8 +22,6 @@ android {
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
 
-    implementation deps.support.appcompat_v7
-
     api deps.support.glide
 
     api deps.support.gson
