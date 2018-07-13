@@ -36,12 +36,6 @@ android {
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
 
-    implementation deps.view.constraint
-
-    implementation deps.support.appcompat_v7
-
-    implementation deps.view.recyclerview
-
     implementation project(':module_common')
 
 }

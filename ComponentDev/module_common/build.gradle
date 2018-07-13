@@ -22,6 +22,18 @@ android {
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
 
+    api deps.support.v4_compat
+
+    api deps.support.v4_core_utils
+
+    api deps.support.v4_fragment
+
+    api deps.support.appcompat_v7
+
+    api deps.view.constraint
+
+    api deps.view.recyclerview
+
     api deps.support.glide
 
     api deps.support.gson
