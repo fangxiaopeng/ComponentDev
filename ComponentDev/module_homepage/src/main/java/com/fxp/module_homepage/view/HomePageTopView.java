@@ -1,10 +1,16 @@
 package com.fxp.module_homepage.view;
 
 import android.content.Context;
+import android.support.v7.widget.RecyclerView;
 import android.util.Log;
+import android.widget.ImageView;
 import android.widget.ScrollView;
+import android.widget.TextView;
 import android.widget.Toast;
 
+import com.bumptech.glide.Glide;
+import com.fxp.module_common.utils.Constants;
+import com.fxp.module_homepage.R;
 import com.fxp.module_homepage.inter.RefreshListener;
 import com.fxp.module_homepage.inter.RequestListener;
 import com.fxp.module_homepage.model.UserInfoBean;
@@ -35,6 +41,12 @@ public class HomePageTopView extends BaseView implements RefreshListener{
 
     private final static String TAG = HomePageTopView.class.getSimpleName();
 
+    private ImageView userPhotoImg;
+
+    private TextView userNameTxt, userDescTxt;
+
+    private RecyclerView navRecyclerView;
+
     public HomePageTopView(Context context, ScrollView mainView){
         super(context, mainView);
 
@@ -42,11 +54,17 @@ public class HomePageTopView extends BaseView implements RefreshListener{
 
     @Override
     protected void findViews() {
-
+        userPhotoImg = mainView.findViewById(R.id.img_user_photo);
+        userNameTxt = mainView.findViewById(R.id.txt_user_name);
+        userDescTxt = mainView.findViewById(R.id.txt_user_desc);
+        navRecyclerView = mainView.findViewById(R.id.rv_nav_list);
     }
 
     @Override
     protected void initViews() {
+
+        initNavList();
+
         refreshViews();
     }
 
@@ -75,7 +93,7 @@ public class HomePageTopView extends BaseView implements RefreshListener{
      * @exception/throws
      */
     private void refreshViews(){
-        requestData("homepage/api/userInfo.json", UserInfoBean.class, new RequestListener() {
+        requestData(Constants.PATH_HOMEPAGE_UERRINFO, UserInfoBean.class, new RequestListener() {
             @Override
             public void onSuccess(Object object) {
                 UserInfoBean userInfoBean = (UserInfoBean)object;
@@ -101,7 +119,18 @@ public class HomePageTopView extends BaseView implements RefreshListener{
      * @exception/throws
      */
     private void updateUI(@NonNull UserInfoBean userInfoBean){
-        Log.e(TAG, "updateUI");
+        Log.i(TAG, "updateUI");
+        Glide.with(context).load(R.mipmap.img_user).asBitmap().into(userPhotoImg);
+        userNameTxt.setText(userInfoBean.getUser_name());
+        userDescTxt.setText(userInfoBean.getUser_desc());
+        updateNavList(userInfoBean);
+    }
+
+    private void initNavList(){
+
+    }
+
+    private void updateNavList(@NonNull UserInfoBean userInfoBean){
 
     }
 }
