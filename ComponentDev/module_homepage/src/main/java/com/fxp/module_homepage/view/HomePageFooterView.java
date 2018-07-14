@@ -3,7 +3,7 @@ package com.fxp.module_homepage.view;
 import android.content.Context;
 import android.widget.ScrollView;
 
-import com.fxp.module_homepage.inter.RefreshListener;
+import com.fxp.module_common.inter.RefreshListener;
 
 /**
  * Title:       HomePageFooterView
