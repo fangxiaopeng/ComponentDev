@@ -10,6 +10,7 @@ import android.widget.TextView;
 
 import com.fxp.module_common.utils.DensityUtils;
 import com.fxp.module_homepage.R;
+import com.fxp.module_common.inter.OnItemClickListener;
 import com.fxp.module_homepage.model.UserInfoBean;
 
 import java.util.List;
@@ -34,7 +35,7 @@ import java.util.List;
  * <p>
  * Github:  https://github.com/fangxiaopeng
  */
-public class HomePageNavAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>{
+public class HomePageNavAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> implements View.OnClickListener{
 
     private final static String TAG = HomePageNavAdapter.class.getSimpleName();
 
@@ -43,6 +44,8 @@ public class HomePageNavAdapter extends RecyclerView.Adapter<RecyclerView.ViewHo
     private List<UserInfoBean.NavBean> datas;
 
     private LayoutInflater layoutInflater;
+
+    private OnItemClickListener itemClickListener;
 
     public HomePageNavAdapter(Context context, List<UserInfoBean.NavBean> datas){
         this.context = context;
@@ -64,12 +67,25 @@ public class HomePageNavAdapter extends RecyclerView.Adapter<RecyclerView.ViewHo
             ((NavHolder)holder).lable.setText(datas.get(position).getName());
             // 动态调整item项宽度,（屏幕宽度 - 左右margin值）/ item项数目
             ((NavHolder)holder).lable.setWidth((DensityUtils.getScreenWidth(context) - DensityUtils.dp2px(context, 10))/datas.size());
+            ((NavHolder)holder).lable.setTag(position);
+            ((NavHolder)holder).lable.setOnClickListener(this);
         }
     }
 
     @Override
     public int getItemCount() {
         return datas.size();
+    }
+
+    public void setItemClickListener(OnItemClickListener itemClickListener) {
+        this.itemClickListener = itemClickListener;
+    }
+
+    @Override
+    public void onClick(View v) {
+        if (itemClickListener != null){
+            itemClickListener.onItemClick((Integer)v.getTag());
+        }
     }
 
     class NavHolder extends RecyclerView.ViewHolder{
