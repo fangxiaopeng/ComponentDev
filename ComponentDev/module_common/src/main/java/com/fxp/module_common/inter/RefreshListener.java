@@ -1,9 +1,9 @@
-package com.fxp.module_homepage.inter;
+package com.fxp.module_common.inter;
 
 /**
  * Title:       RefreshListener
  * <p>
- * Package:     com.fxp.module_homepage.inter
+ * Package:     com.fxp.module_common.inter
  * <p>
  * Author:      fxp
  * <p>
