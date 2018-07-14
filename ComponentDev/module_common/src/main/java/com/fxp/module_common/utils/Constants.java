@@ -28,4 +28,11 @@ public class Constants {
      */
     public final static String PATH_HOMEPAGE_UERRINFO = "homepage/api/userInfo.json";
 
+
+    /************************************************ 隐式调用action ************************************************/
+    /**
+     * WebView容器Activity
+     */
+    public final static String ACTION_WEBVIEW_ACTIVITY = "";
+
 }
