@@ -1,11 +1,14 @@
 package com.fxp.module_homepage.view;
 
+import android.content.ComponentName;
 import android.content.Context;
+import android.content.Intent;
 import android.util.Log;
 import android.widget.ScrollView;
 
 import com.fxp.module_common.utils.AssetsUtil;
-import com.fxp.module_homepage.inter.RefreshListener;
+import com.fxp.module_common.inter.RefreshListener;
+import com.fxp.module_common.utils.Constants;
 import com.fxp.module_homepage.inter.RequestListener;
 import com.google.gson.Gson;
 
@@ -129,6 +132,26 @@ public abstract class BaseView {
                         Log.i(TAG, "onComplete");
                     }
                 });
+    }
+
+    /**
+     * @Description: 跳转到详情页-Web
+     *
+     * @Author:  fxp
+     * @Date:    2018/7/14   下午4:32
+     * @param    link
+     * @return   void
+     * @exception/throws
+     */
+    protected void toDetailPage(String link){
+        try {
+            Intent intent = new Intent();
+            intent.setComponent(new ComponentName(context.getPackageName(), Constants.ACTION_WEBVIEW_ACTIVITY));
+            intent.putExtra("link", link);
+            context.startActivity(intent);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
 }
