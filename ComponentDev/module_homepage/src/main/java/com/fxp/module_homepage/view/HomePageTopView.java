@@ -9,14 +9,17 @@ import android.widget.ScrollView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.bumptech.glide.Glide;
 import com.fxp.module_common.utils.Constants;
 import com.fxp.module_common.utils.GlideUtil;
 import com.fxp.module_homepage.R;
 import com.fxp.module_homepage.adapter.HomePageNavAdapter;
-import com.fxp.module_homepage.inter.RefreshListener;
+import com.fxp.module_common.inter.OnItemClickListener;
+import com.fxp.module_common.inter.RefreshListener;
 import com.fxp.module_homepage.inter.RequestListener;
 import com.fxp.module_homepage.model.UserInfoBean;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import io.reactivex.annotations.NonNull;
 
@@ -40,7 +43,7 @@ import io.reactivex.annotations.NonNull;
  * <p>
  * Github:  https://github.com/fangxiaopeng
  */
-public class HomePageTopView extends BaseView implements RefreshListener{
+public class HomePageTopView extends BaseView implements RefreshListener, OnItemClickListener{
 
     private final static String TAG = HomePageTopView.class.getSimpleName();
 
@@ -51,6 +54,8 @@ public class HomePageTopView extends BaseView implements RefreshListener{
     private RecyclerView navRecyclerView;
 
     private HomePageNavAdapter homePageNavAdapter;
+
+    private List<UserInfoBean.NavBean> navBeanList;
 
     public HomePageTopView(Context context, ScrollView mainView){
         super(context, mainView);
@@ -66,6 +71,11 @@ public class HomePageTopView extends BaseView implements RefreshListener{
     }
 
     @Override
+    protected void initDatas() {
+        navBeanList = new ArrayList<UserInfoBean.NavBean>();
+    }
+
+    @Override
     protected void initViews() {
 
         initNavList();
@@ -74,13 +84,8 @@ public class HomePageTopView extends BaseView implements RefreshListener{
     }
 
     @Override
-    protected void initDatas() {
-
-    }
-
-    @Override
     protected void initListener() {
-
+        homePageNavAdapter.setItemClickListener(this);
     }
 
     @Override
@@ -135,6 +140,8 @@ public class HomePageTopView extends BaseView implements RefreshListener{
         LinearLayoutManager layoutManager = new LinearLayoutManager(context);
         layoutManager.setOrientation(LinearLayoutManager.HORIZONTAL);
         navRecyclerView.setLayoutManager(layoutManager);
+        homePageNavAdapter = new HomePageNavAdapter(context, navBeanList);
+        navRecyclerView.setAdapter(homePageNavAdapter);
     }
 
     /**
@@ -147,8 +154,13 @@ public class HomePageTopView extends BaseView implements RefreshListener{
      * @exception/throws
      */
     private void updateNavList(@NonNull UserInfoBean userInfoBean){
-        homePageNavAdapter = new HomePageNavAdapter(context, userInfoBean.getUser_nav());
-        navRecyclerView.setAdapter(homePageNavAdapter);
+        navBeanList = userInfoBean.getUser_nav();
+        navRecyclerView.notifyAll();
     }
 
+    @Override
+    public void onItemClick(int position) {
+        Toast.makeText(context, "onItemClick-" + position, Toast.LENGTH_SHORT).show();
+//        toDetailPage(navBeanList.get(position).getLink());
+    }
 }
