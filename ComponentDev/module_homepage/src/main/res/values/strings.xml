@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">module_homepage</string>
+    <string name="lable_projects">开源项目</string>
 </resources>
