@@ -28,6 +28,11 @@ public class Constants {
      */
     public final static String PATH_HOMEPAGE_UERRINFO = "homepage/api/userInfo.json";
 
+    /**
+     * 开源项目
+     */
+    public final static String PATH_HOMEPAGE_PROJECTINFO = "homepage/api/projectInfo.json";
+
 
     /************************************************ 隐式调用action ************************************************/
     /**
