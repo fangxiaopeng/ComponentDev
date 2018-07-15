@@ -105,9 +105,9 @@ public class HomePageProjectsView extends BaseView implements RefreshListener, O
         requestData(Constants.PATH_HOMEPAGE_PROJECTINFO, ProjectInfoBean.class, new RequestListener() {
             @Override
             public void onSuccess(Object object) {
-                ProjectInfoBean ProjectBean = (ProjectInfoBean)object;
-                if (ProjectBean != null){
-                    updateUI(ProjectBean);
+                ProjectInfoBean projectBean = (ProjectInfoBean)object;
+                if (projectBean != null){
+                    updateUI(projectBean);
                 }
             }
 
@@ -123,14 +123,14 @@ public class HomePageProjectsView extends BaseView implements RefreshListener, O
      *
      * @Author:  fxp
      * @Date:    2018/7/15   上午12:10
-     * @param    ProjectBean
+     * @param    projectBean
      * @return   void
      * @exception/throws
      */
-    private void updateUI(@NonNull ProjectInfoBean ProjectBean){
+    private void updateUI(@NonNull ProjectInfoBean projectBean){
         Log.i(TAG, "updateUI");
 
-        updateProjectList(ProjectBean);
+        updateProjectList(projectBean);
     }
 
     private void initProjectList(){
@@ -146,13 +146,13 @@ public class HomePageProjectsView extends BaseView implements RefreshListener, O
      *
      * @Author:  fxp
      * @Date:    2018/7/15   上午12:18
-     * @param    ProjectBean
+     * @param    projectBean
      * @return   void
      * @exception/throws
      */
-    private void updateProjectList(@NonNull ProjectInfoBean ProjectBean){
+    private void updateProjectList(@NonNull ProjectInfoBean projectBean){
         projectBeanList.clear();
-        projectBeanList.addAll(ProjectBean.getProject_list());
+        projectBeanList.addAll(projectBean.getProject_list());
         if (homePageProjectAdapter == null){
             homePageProjectAdapter = new HomePageProjectAdapter(context, projectBeanList);
             projectRecyclerView.setAdapter(homePageProjectAdapter);
