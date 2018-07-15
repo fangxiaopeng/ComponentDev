@@ -33,6 +33,11 @@ public class Constants {
      */
     public final static String PATH_HOMEPAGE_PROJECTINFO = "homepage/api/projectInfo.json";
 
+    /**
+     * 博客文章
+     */
+    public final static String PATH_HOMEPAGE_BLOGINFO = "homepage/api/blogInfo.json";
+
 
     /************************************************ 隐式调用action ************************************************/
     /**
