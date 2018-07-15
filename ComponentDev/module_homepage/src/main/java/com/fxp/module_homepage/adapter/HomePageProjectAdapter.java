@@ -34,7 +34,7 @@ import java.util.List;
  * <p>
  * Github:  https://github.com/fangxiaopeng
  */
-public class HomePageProjectAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>{
+public class HomePageProjectAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> implements View.OnClickListener {
 
     private final static String TAG = HomePageProjectAdapter.class.getSimpleName();
 
@@ -64,6 +64,8 @@ public class HomePageProjectAdapter extends RecyclerView.Adapter<RecyclerView.Vi
         if (holder instanceof ProjectHolder){
             ((ProjectHolder)holder).titleTextView.setText(projectBeanList.get(position).getTitle());
             ((ProjectHolder)holder).descTextView.setText(projectBeanList.get(position).getDesc());
+            ((ProjectHolder)holder).itemView.setTag(position);
+            ((ProjectHolder)holder).itemView.setOnClickListener(this);
         }
     }
 
@@ -74,6 +76,13 @@ public class HomePageProjectAdapter extends RecyclerView.Adapter<RecyclerView.Vi
 
     public void setItemClickListener(OnItemClickListener itemClickListener){
         this.itemClickListener = itemClickListener;
+    }
+
+    @Override
+    public void onClick(View v) {
+        if (itemClickListener != null){
+            itemClickListener.onItemClick((Integer)v.getTag());
+        }
     }
 
     class ProjectHolder extends RecyclerView.ViewHolder{
