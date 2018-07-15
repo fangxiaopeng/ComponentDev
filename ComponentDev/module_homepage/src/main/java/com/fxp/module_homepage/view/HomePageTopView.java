@@ -154,8 +154,14 @@ public class HomePageTopView extends BaseView implements RefreshListener, OnItem
      * @exception/throws
      */
     private void updateNavList(@NonNull UserInfoBean userInfoBean){
-        navBeanList = userInfoBean.getUser_nav();
-        navRecyclerView.notifyAll();
+        navBeanList.clear();
+        navBeanList.addAll(userInfoBean.getUser_nav());
+        if (homePageNavAdapter == null){
+            homePageNavAdapter = new HomePageNavAdapter(context, navBeanList);
+            navRecyclerView.setAdapter(homePageNavAdapter);
+        }else {
+            homePageNavAdapter.notifyDataSetChanged();
+        }
     }
 
     @Override
