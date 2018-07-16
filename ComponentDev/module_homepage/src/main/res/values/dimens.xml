@@ -4,9 +4,11 @@
     <dimen name="dp_10">10dp</dimen>
     <dimen name="dp_15">15dp</dimen>
     <dimen name="dp_20">20dp</dimen>
+    <dimen name="dp_50">50dp</dimen>
     <dimen name="dp_100">100dp</dimen>
 
-    <dimen name="sp_10">12sp</dimen>
+    <dimen name="sp_8">8sp</dimen>
+    <dimen name="sp_10">10sp</dimen>
     <dimen name="sp_12">12sp</dimen>
     <dimen name="sp_14">14sp</dimen>
     <dimen name="sp_20">20sp</dimen>
