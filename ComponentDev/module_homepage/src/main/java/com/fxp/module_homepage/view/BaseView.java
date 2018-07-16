@@ -3,8 +3,10 @@ package com.fxp.module_homepage.view;
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
+import android.net.Uri;
 import android.util.Log;
 import android.widget.ScrollView;
+import android.widget.Toast;
 
 import com.fxp.module_common.utils.AssetsUtil;
 import com.fxp.module_common.inter.RefreshListener;
@@ -139,18 +141,57 @@ public abstract class BaseView {
      *
      * @Author:  fxp
      * @Date:    2018/7/14   下午4:32
-     * @param    link
+     * @param    url
      * @return   void
      * @exception/throws
      */
-    protected void toDetailPage(String link){
+    protected void toDetailPage(String url){
+        openWithSystemBrowser(url);
+    }
+
+    /**
+     * @Description: 启动本地Activity打开网页
+     *
+     * @Author:  fxp
+     * @Date:    2018/7/16   上午9:51
+     * @param    url
+     * @return   void
+     * @exception/throws
+     */
+    private void openWithCustomWebView(String url){
         try {
             Intent intent = new Intent();
             intent.setComponent(new ComponentName(context.getPackageName(), Constants.ACTION_WEBVIEW_ACTIVITY));
-            intent.putExtra("link", link);
+            intent.putExtra("link", url);
             context.startActivity(intent);
         } catch (Exception e) {
             e.printStackTrace();
+        }
+    }
+
+    /**
+     * @Description:  调用系统浏览器打开远程页面
+     *
+     * @Author:  fxp
+     * @Date:    2018/7/16   上午9:48
+     * @param    url
+     * @return   void
+     * @exception/throws
+     */
+    public void openWithSystemBrowser(String url){
+        if (!url.equals("") && url != null){
+            try {
+                Uri uri = Uri.parse(url);
+                Intent intent = new Intent(Intent.ACTION_VIEW, uri);
+                context.startActivity(intent);
+            }catch (Exception e){
+                Toast.makeText(context,"url有误，请确认",Toast.LENGTH_SHORT).show();
+                e.printStackTrace();
+            }
+
+        }else {
+            // url为空时，启动Activity会报错
+            Toast.makeText(context,"url为空，请确认",Toast.LENGTH_SHORT).show();
         }
     }
 
