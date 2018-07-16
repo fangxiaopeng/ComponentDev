@@ -166,7 +166,6 @@ public class HomePageTopView extends BaseView implements RefreshListener, OnItem
 
     @Override
     public void onItemClick(int position) {
-        Toast.makeText(context, "onItemClick-" + position, Toast.LENGTH_SHORT).show();
-//        toDetailPage(navBeanList.get(position).getLink());
+        toDetailPage(navBeanList.get(position).getLink());
     }
 }

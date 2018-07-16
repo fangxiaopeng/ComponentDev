@@ -168,15 +168,13 @@ public class HomePageBlogsView extends BaseView implements RefreshListener, OnIt
 
     @Override
     public void onItemClick(int position) {
-        Toast.makeText(context, "onItemClick-" + position, Toast.LENGTH_SHORT).show();
         toDetailPage(blogBeanList.get(position).getLink());
     }
 
     @Override
     public void onClick(View v) {
         if (v.getId() == R.id.txt_view_more){
-            Toast.makeText(context, "onClick-查看更多", Toast.LENGTH_SHORT).show();
-//            toDetailPage(blogInfo.getBlog_address());
+            toDetailPage(blogInfo.getBlog_address());
         }
     }
 }

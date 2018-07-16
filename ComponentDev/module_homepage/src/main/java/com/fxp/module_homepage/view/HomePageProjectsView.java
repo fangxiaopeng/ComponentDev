@@ -88,8 +88,7 @@ public class HomePageProjectsView extends BaseView implements RefreshListener, O
 
     @Override
     public void onItemClick(int position) {
-        Toast.makeText(context, "onItemClick-" + position, Toast.LENGTH_SHORT).show();
-//        toDetailPage(projectBeanList.get(position).getLink());
+        toDetailPage(projectBeanList.get(position).getLink());
     }
 
     /**

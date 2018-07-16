@@ -161,7 +161,6 @@ public class HomePageFooterView extends BaseView implements RefreshListener, OnI
 
     @Override
     public void onItemClick(int position) {
-        Toast.makeText(context, "onItemClick-" + position, Toast.LENGTH_SHORT).show();
         toDetailPage(friendLinkList.get(position).getLink());
     }
 }
