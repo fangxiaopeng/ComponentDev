@@ -5,6 +5,9 @@
     <string name="lable_view_more">查看更多</string>
     <string name="lable_friend_link">友情链接：</string>
     <string name="lable_msg_board">留言板</string>
+    <string name="lable_hot_msg">热门留言</string>
+    <string name="lable_msg_join">人参与，</string>
+    <string name="lable_msg_leave">人留言</string>
     <string name="hint_msg_input">来说两句吧……</string>
     <string name="lable_msg_publish">发表留言</string>
 </resources>

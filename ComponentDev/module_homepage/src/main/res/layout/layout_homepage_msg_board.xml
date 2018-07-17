@@ -35,7 +35,7 @@
             android:gravity="left"
             android:layout_marginLeft="@dimen/dp_5"
             android:layout_marginBottom="@dimen/dp_1"
-            android:text="热门留言"/>
+            android:text="@string/lable_hot_msg"/>
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -45,28 +45,30 @@
             android:gravity="right">
 
             <TextView
+                android:id="@+id/txt_join_num"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textSize="@dimen/sp_20"
-                android:text="12"/>
+                android:text=""/>
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textSize="@dimen/sp_12"
-                android:text="人参与，"/>
+                android:text="@string/lable_msg_join"/>
 
             <TextView
+                android:id="@+id/txt_msg_num"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textSize="@dimen/sp_20"
-                android:text="5"/>
+                android:text=""/>
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textSize="@dimen/sp_12"
-                android:text="人留言"/>
+                android:text="@string/lable_msg_leave"/>
 
         </LinearLayout>
 
@@ -83,7 +85,7 @@
     <ExpandableListView
         android:id="@+id/exp_msg_board_list"
         android:layout_width="match_parent"
-        android:layout_height="300dp"
+        android:layout_height="wrap_content"
         android:layout_marginBottom="@dimen/dp_50"
         android:background="@color/transparent"/>
 
