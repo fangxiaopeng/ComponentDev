@@ -7,6 +7,7 @@ import android.widget.ScrollView;
 import com.fxp.module_homepage.R;
 import com.fxp.module_homepage.view.HomePageBlogsView;
 import com.fxp.module_homepage.view.HomePageFooterView;
+import com.fxp.module_homepage.view.HomePageMsgBoardView;
 import com.fxp.module_homepage.view.HomePageProjectsView;
 import com.fxp.module_homepage.view.HomePageTopView;
 
@@ -57,6 +58,9 @@ public class HomePageMainController {
 
         // 博客文章
         new HomePageBlogsView(context, mainView);
+
+        // 留言板
+        new HomePageMsgBoardView(context, mainView);
 
         // 友情链接
         new HomePageFooterView(context, mainView);
