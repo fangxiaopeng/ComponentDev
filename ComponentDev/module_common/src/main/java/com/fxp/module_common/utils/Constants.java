@@ -39,6 +39,11 @@ public class Constants {
     public final static String PATH_HOMEPAGE_BLOGINFO = "homepage/api/blogInfo.json";
 
     /**
+     * 留言板
+     */
+    public final static String PATH_HOMEPAGE_MSGBOARDINFO = "homepage/api/msgBoardInfo.json";
+
+    /**
      * 底部信息（友情链接 + 版权）
      */
     public final static String PATH_HOMEPAGE_FOOTERINFO = "homepage/api/footerInfo.json";
