@@ -4,4 +4,7 @@
     <string name="lable_blogs">博客文章</string>
     <string name="lable_view_more">查看更多</string>
     <string name="lable_friend_link">友情链接：</string>
+    <string name="lable_msg_board">留言板</string>
+    <string name="hint_msg_input">来说两句吧……</string>
+    <string name="lable_msg_publish">发表留言</string>
 </resources>
