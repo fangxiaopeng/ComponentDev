@@ -26,6 +26,9 @@
             <!-- 博客文章 -->
             <include layout="@layout/layout_homepage_blogs" />
 
+            <!-- 留言板 -->
+            <include layout="@layout/layout_homepage_msg_board"/>
+
             <!-- 底部 -->
             <include layout="@layout/layout_homepage_footer" />
 
