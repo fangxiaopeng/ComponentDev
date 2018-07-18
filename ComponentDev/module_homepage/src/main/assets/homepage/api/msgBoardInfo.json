@@ -1,20 +1,21 @@
 {
   "pageIndex":1,
   "pageSize":10,
-  "msgNum":5,
-  "joinNum":12,
+  "msgNum":2,
+  "joinNum":48,
   "msgInfos":[
     {
       "msgId":"msgId",
       "msgIndex":1,
-      "msgCreateTime":"msgCreateTime",
-      "msgCreateAddress":"msgCreateAddress",
-      "msgContent":"msgContent",
-      "msgThumbNum":1,
-      "msgCommentNum":1,
+      "msgCreateTime":"2018年7月17日 下午2:15",
+      "msgCreateAddress":"深圳市·公安局",
+      "msgContent":"这个沙发我坐定了，哈哈哈",
+      "msgThumbNum":45,
+      "msgCommentNum":0,
       "msgUser":{
         "userId":"userId",
-        "userName":"userName",
+        "userSex":"man",
+        "userName":"卓诺不迷路",
         "userPhoto":"userPhoto"
       },
       "thumbInfos":[
@@ -23,40 +24,26 @@
           "thumbTime":"thumbTime",
           "thumbUser":{
             "userId":"userId",
-            "userName":"userName",
+            "userSex":"man",
+            "userName":"卓诺不迷路",
             "userPhoto":"userPhoto"
           }
         }
       ],
-      "commentInfos":[
-        {
-          "commentId":"commentId",
-          "commentTime":"commentTime",
-          "commentContent":"commentContent",
-          "commentUser":{
-            "userId":"userId",
-            "userName":"userName",
-            "userPhoto":"userPhoto"
-          },
-          "targetUser":{
-            "userId":"userId",
-            "userName":"userName",
-            "userPhoto":"userPhoto"
-          }
-        }
-      ]
+      "commentInfos":[]
     },
     {
       "msgId":"msgId",
       "msgIndex":1,
-      "msgCreateTime":"msgCreateTime",
-      "msgCreateAddress":"msgCreateAddress",
-      "msgContent":"msgContent",
-      "msgThumbNum":1,
-      "msgCommentNum":1,
+      "msgCreateTime":"2018年7月17日 下午2:18",
+      "msgCreateAddress":"伟大航路·罗格镇",
+      "msgContent":"想要我的财宝吗？想要的话可以全部给你，去找吧！我把所有财宝都放在那里",
+      "msgThumbNum":3,
+      "msgCommentNum":2,
       "msgUser":{
         "userId":"userId",
-        "userName":"userName",
+        "userSex":"woman",
+        "userName":"哥尔·D·罗杰",
         "userPhoto":"userPhoto"
       },
       "thumbInfos":[
@@ -65,7 +52,8 @@
           "thumbTime":"thumbTime",
           "thumbUser":{
             "userId":"userId",
-            "userName":"userName",
+            "userSex":"man",
+            "userName":"卓诺不迷路",
             "userPhoto":"userPhoto"
           }
         }
@@ -74,141 +62,34 @@
         {
           "commentId":"commentId",
           "commentTime":"commentTime",
-          "commentContent":"commentContent",
+          "commentContent":"受尽苦难而不厌，此乃修罗之道",
           "commentUser":{
             "userId":"userId",
-            "userName":"userName",
+            "userSex":"man",
+            "userName":"卓诺不迷路",
             "userPhoto":"userPhoto"
           },
           "targetUser":{
             "userId":"userId",
-            "userName":"userName",
+            "userSex":"woman",
+            "userName":"哥尔·D·罗杰",
             "userPhoto":"userPhoto"
           }
-        }
-      ]
-    },
-    {
-      "msgId":"msgId",
-      "msgIndex":1,
-      "msgCreateTime":"msgCreateTime",
-      "msgCreateAddress":"msgCreateAddress",
-      "msgContent":"msgContent",
-      "msgThumbNum":1,
-      "msgCommentNum":1,
-      "msgUser":{
-        "userId":"userId",
-        "userName":"userName",
-        "userPhoto":"userPhoto"
-      },
-      "thumbInfos":[
-        {
-          "thumbId":"thumbId",
-          "thumbTime":"thumbTime",
-          "thumbUser":{
-            "userId":"userId",
-            "userName":"userName",
-            "userPhoto":"userPhoto"
-          }
-        }
-      ],
-      "commentInfos":[
+        },
         {
           "commentId":"commentId",
           "commentTime":"commentTime",
-          "commentContent":"commentContent",
+          "commentContent":"世代传承的意志，时代的变迁，人的梦想，这些都是无法阻止的",
           "commentUser":{
             "userId":"userId",
-            "userName":"userName",
+            "userSex":"woman",
+            "userName":"哥尔·D·罗杰",
             "userPhoto":"userPhoto"
           },
           "targetUser":{
             "userId":"userId",
-            "userName":"userName",
-            "userPhoto":"userPhoto"
-          }
-        }
-      ]
-    },
-    {
-      "msgId":"msgId",
-      "msgIndex":1,
-      "msgCreateTime":"msgCreateTime",
-      "msgCreateAddress":"msgCreateAddress",
-      "msgContent":"msgContent",
-      "msgThumbNum":1,
-      "msgCommentNum":1,
-      "msgUser":{
-        "userId":"userId",
-        "userName":"userName",
-        "userPhoto":"userPhoto"
-      },
-      "thumbInfos":[
-        {
-          "thumbId":"thumbId",
-          "thumbTime":"thumbTime",
-          "thumbUser":{
-            "userId":"userId",
-            "userName":"userName",
-            "userPhoto":"userPhoto"
-          }
-        }
-      ],
-      "commentInfos":[
-        {
-          "commentId":"commentId",
-          "commentTime":"commentTime",
-          "commentContent":"commentContent",
-          "commentUser":{
-            "userId":"userId",
-            "userName":"userName",
-            "userPhoto":"userPhoto"
-          },
-          "targetUser":{
-            "userId":"userId",
-            "userName":"userName",
-            "userPhoto":"userPhoto"
-          }
-        }
-      ]
-    },
-    {
-      "msgId":"msgId",
-      "msgIndex":1,
-      "msgCreateTime":"msgCreateTime",
-      "msgCreateAddress":"msgCreateAddress",
-      "msgContent":"msgContent",
-      "msgThumbNum":1,
-      "msgCommentNum":1,
-      "msgUser":{
-        "userId":"userId",
-        "userName":"userName",
-        "userPhoto":"userPhoto"
-      },
-      "thumbInfos":[
-        {
-          "thumbId":"thumbId",
-          "thumbTime":"thumbTime",
-          "thumbUser":{
-            "userId":"userId",
-            "userName":"userName",
-            "userPhoto":"userPhoto"
-          }
-        }
-      ],
-      "commentInfos":[
-        {
-          "commentId":"commentId",
-          "commentTime":"commentTime",
-          "commentContent":"commentContent",
-          "commentUser":{
-            "userId":"userId",
-            "userName":"userName",
-            "userPhoto":"userPhoto"
-          },
-          "targetUser":{
-            "userId":"userId",
-            "userName":"userName",
+            "userSex":"man",
+            "userName":"卓诺不迷路",
             "userPhoto":"userPhoto"
           }
         }
