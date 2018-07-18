@@ -4,12 +4,14 @@ import android.content.Context;
 import android.util.Log;
 import android.widget.EditText;
 import android.widget.ExpandableListView;
+import android.widget.LinearLayout;
 import android.widget.ScrollView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.fxp.module_common.inter.RefreshListener;
 import com.fxp.module_common.utils.Constants;
+import com.fxp.module_common.utils.DensityUtils;
 import com.fxp.module_homepage.R;
 import com.fxp.module_homepage.adapter.HomePageMsgBoardAdapter;
 import com.fxp.module_homepage.inter.RequestListener;
@@ -44,6 +46,8 @@ public class HomePageMsgBoardView extends BaseView implements RefreshListener{
 
     private final static String TAG = HomePageMsgBoardView.class.getSimpleName();
 
+    private TextView joinNumTextView, commentNumTextView;
+
     private EditText msgInputEditText;
 
     private TextView msgPublishBtn;
@@ -61,9 +65,11 @@ public class HomePageMsgBoardView extends BaseView implements RefreshListener{
 
     @Override
     protected void findViews() {
+        joinNumTextView = mainView.findViewById(R.id.txt_join_num);
+        commentNumTextView = mainView.findViewById(R.id.txt_msg_num);
+        msgBoardExpandableListView = mainView.findViewById(R.id.exp_msg_board_list);
         msgInputEditText = mainView.findViewById(R.id.edit_msg_input);
         msgPublishBtn = mainView.findViewById(R.id.txt_msg_publish);
-        msgBoardExpandableListView = mainView.findViewById(R.id.exp_msg_board_list);
     }
 
     @Override
@@ -127,6 +133,10 @@ public class HomePageMsgBoardView extends BaseView implements RefreshListener{
     private void updateUI(@NonNull MsgBoardInfoBean msgBoardInfo){
         Log.i(TAG, "updateUI");
 
+        joinNumTextView.setText(msgBoardInfo.getJoinNum() + "");
+
+        commentNumTextView.setText(msgBoardInfo.getMsgNum() + "");
+
         adjustExpandableListHeight(msgBoardInfo);
 
         updateMsgBoardList(msgBoardInfo);
@@ -149,7 +159,12 @@ public class HomePageMsgBoardView extends BaseView implements RefreshListener{
      * @exception/throws
      */
     private void adjustExpandableListHeight(@NonNull MsgBoardInfoBean msgBoardInfo){
+        // fixme: 当前固定320dp，待完善
 
+        int listHeight = DensityUtils.dip2px(context, 320);
+        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) msgBoardExpandableListView.getLayoutParams();
+        layoutParams.height = listHeight;
+        msgBoardExpandableListView.setLayoutParams(layoutParams);
     }
 
     /**
