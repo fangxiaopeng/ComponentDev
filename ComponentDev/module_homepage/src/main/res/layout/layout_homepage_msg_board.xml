@@ -7,11 +7,24 @@
     android:layout_margin="@dimen/dp_5"
     android:background="@drawable/bg_round_corners_gray">
 
-    <TextView
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/dp_5"
-        android:text="@string/lable_msg_board"/>
+        android:orientation="horizontal">
+
+        <ImageView
+            android:layout_width="@dimen/dp_20"
+            android:layout_height="@dimen/dp_20"
+            android:src="@mipmap/icon_msg_board"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/dp_5"
+            android:text="@string/lable_msg_board"/>
+
+    </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
