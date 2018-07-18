@@ -266,6 +266,8 @@ public class MsgBoardInfoBean {
 
             private String userId;
 
+            private String userSex;
+
             private String userName;
 
             private String userPhoto;
@@ -276,6 +278,14 @@ public class MsgBoardInfoBean {
 
             public void setUserId(String userId) {
                 this.userId = userId;
+            }
+
+            public String getUserSex() {
+                return userSex;
+            }
+
+            public void setUserSex(String userSex) {
+                this.userSex = userSex;
             }
 
             public String getUserName() {
