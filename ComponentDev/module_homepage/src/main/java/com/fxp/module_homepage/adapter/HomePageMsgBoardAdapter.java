@@ -1,10 +1,12 @@
 package com.fxp.module_homepage.adapter;
 
 import android.content.Context;
+import android.text.Html;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseExpandableListAdapter;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -102,13 +104,25 @@ public class HomePageMsgBoardAdapter extends BaseExpandableListAdapter{
         if (convertView == null) {
             holder = new GroupViewHolder();
             convertView = layoutInflater.inflate(R.layout.item_homepage_msg_list_outer, null);
-            holder.lable = (TextView) convertView.findViewById(R.id.lable);
+            holder.commentPhotoImageView = (ImageView) convertView.findViewById(R.id.img_comment_photo);
+            holder.commentAccountTextView = (TextView) convertView.findViewById(R.id.txt_comment_account);
+            holder.likeNumTextView = (TextView) convertView.findViewById(R.id.txt_like_num);
+            holder.commentNumTextView = (TextView) convertView.findViewById(R.id.txt_comment_num);
+            holder.commentTimeTextView = (TextView) convertView.findViewById(R.id.txt_comment_time);
+            holder.commentAddressTextView = (TextView) convertView.findViewById(R.id.txt_comment_address);
+            holder.commentContentTextView = (TextView) convertView.findViewById(R.id.txt_comment_content);
             convertView.setTag(holder);
         } else {
             holder = (GroupViewHolder) convertView.getTag();
         }
 
-        holder.lable.setText(msgBoardList.get(groupPosition).getMsgContent());
+        holder.commentPhotoImageView.setImageResource(R.mipmap.photo_default_man);
+        holder.commentAccountTextView.setText(msgBoardList.get(groupPosition).getMsgUser().getUserName());
+        holder.commentNumTextView.setText(msgBoardList.get(groupPosition).getMsgCommentNum() + "");
+        holder.likeNumTextView.setText(msgBoardList.get(groupPosition).getMsgThumbNum() + "");
+        holder.commentTimeTextView.setText(msgBoardList.get(groupPosition).getMsgCreateTime());
+        holder.commentAddressTextView.setText(msgBoardList.get(groupPosition).getMsgCreateAddress());
+        holder.commentContentTextView.setText(msgBoardList.get(groupPosition).getMsgContent());
 
         return convertView;
     }
@@ -124,18 +138,27 @@ public class HomePageMsgBoardAdapter extends BaseExpandableListAdapter{
 
         convertView = layoutInflater.inflate(R.layout.item_homepage_msg_list_inner, null);
         textViewHolder = new TextViewHolder();
-        textViewHolder.lable = (TextView) convertView.findViewById(R.id.lable);
+        textViewHolder.commentDetailTextView = (TextView) convertView.findViewById(R.id.txt_comment_detail);
 
-        textViewHolder.lable.setText(msgBoardList.get(groupPosition).getCommentInfos().get(childPosition).getCommentContent());
+        MsgBoardInfoBean.MsgInfo.CommentInfo commentInfo = msgBoardList.get(groupPosition).getCommentInfos().get(childPosition);
+
+        String str = "<font color='#576b95'>" + commentInfo.getCommentUser().getUserName() + "</font>" + " 回复 " + "<font color='#576b95'>" + commentInfo.getTargetUser().getUserName() + "</font>" + "：" + commentInfo.getCommentContent();
+        textViewHolder.commentDetailTextView.setText(Html.fromHtml(str));
 
         return convertView;
     }
 
     class GroupViewHolder {
-        private TextView lable;
+        private ImageView commentPhotoImageView;
+        private TextView commentAccountTextView;
+        private TextView commentNumTextView;
+        private TextView likeNumTextView;
+        private TextView commentTimeTextView;
+        private TextView commentAddressTextView;
+        private TextView commentContentTextView;
     }
 
     class TextViewHolder {
-        private TextView lable;
+        private TextView commentDetailTextView;
     }
 }
