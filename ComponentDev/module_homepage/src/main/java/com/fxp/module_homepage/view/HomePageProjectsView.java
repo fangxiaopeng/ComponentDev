@@ -138,6 +138,8 @@ public class HomePageProjectsView extends BaseView implements RefreshListener, O
         projectRecyclerView.addItemDecoration(new GridItemDecoration(2, DensityUtils.dp2px(context, 5), true));
         homePageProjectAdapter = new HomePageProjectAdapter(context, projectBeanList);
         projectRecyclerView.setAdapter(homePageProjectAdapter);
+        // 解决ScrollView嵌套ScrollView滑动冲突（不流畅），https://www.jianshu.com/p/7e17e48e6baf
+        projectRecyclerView.setNestedScrollingEnabled(false);
     }
 
     /**

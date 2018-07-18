@@ -142,6 +142,8 @@ public class HomePageBlogsView extends BaseView implements RefreshListener, OnIt
         blogRecyclerView.addItemDecoration(new LinearItemDecoration(DensityUtils.dp2px(context, 5)));
         homePageBlogAdapter = new HomePageBlogAdapter(context, blogBeanList);
         blogRecyclerView.setAdapter(homePageBlogAdapter);
+        // 解决ScrollView嵌套ScrollView滑动冲突（不流畅），https://www.jianshu.com/p/7e17e48e6baf
+        blogRecyclerView.setNestedScrollingEnabled(false);
     }
 
     /**
