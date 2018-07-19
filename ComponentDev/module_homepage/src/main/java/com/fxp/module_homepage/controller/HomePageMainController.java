@@ -4,12 +4,17 @@ import android.content.Context;
 import android.view.View;
 import android.widget.ScrollView;
 
+import com.fxp.module_common.utils.MessageRxBus;
+import com.fxp.module_common.utils.RxBus;
+import com.fxp.module_common.utils.RxTimerUtil;
 import com.fxp.module_homepage.R;
 import com.fxp.module_homepage.view.HomePageBlogsView;
 import com.fxp.module_homepage.view.HomePageFooterView;
 import com.fxp.module_homepage.view.HomePageMsgBoardView;
 import com.fxp.module_homepage.view.HomePageProjectsView;
 import com.fxp.module_homepage.view.HomePageTopView;
+
+import io.reactivex.disposables.Disposable;
 
 /**
  * Title:       HomePageViewController
@@ -45,6 +50,8 @@ public class HomePageMainController {
         this.view = view;
 
         initViews();
+
+        initIntervalTimer();
     }
 
     private void initViews(){
@@ -65,4 +72,36 @@ public class HomePageMainController {
         // 友情链接
         new HomePageFooterView(context, mainView);
     }
+
+    /**
+     * @Description: 初始化定时器 - 定时刷新
+     *
+     * @Author:  fxp
+     * @Date:    2018/7/19   上午11:22
+     * @param
+     * @return   void
+     * @exception/throws
+     */
+    private void initIntervalTimer(){
+        new RxTimerUtil().interval(10000, new RxTimerUtil.IRxNext() {
+            @Override
+            public void doNext(long number, Disposable disposable) {
+                postMsg();
+            }
+        });
+    }
+
+    /**
+     * @Description: 发送消息
+     *
+     * @Author:  fxp
+     * @Date:    2018/7/19   上午11:53
+     * @param
+     * @return   void
+     * @exception/throws
+     */
+    private void postMsg(){
+        RxBus.get().post(new MessageRxBus("refresh", "msgContent"));
+    }
+
 }

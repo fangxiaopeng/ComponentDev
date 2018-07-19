@@ -8,9 +8,11 @@ import android.util.Log;
 import android.widget.ScrollView;
 import android.widget.Toast;
 
-import com.fxp.module_common.utils.AssetsUtil;
 import com.fxp.module_common.inter.RefreshListener;
+import com.fxp.module_common.utils.AssetsUtil;
 import com.fxp.module_common.utils.Constants;
+import com.fxp.module_common.utils.MessageRxBus;
+import com.fxp.module_common.utils.RxBus;
 import com.fxp.module_homepage.inter.RequestListener;
 import com.google.gson.Gson;
 
@@ -20,6 +22,7 @@ import io.reactivex.ObservableOnSubscribe;
 import io.reactivex.Observer;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.Disposable;
+import io.reactivex.functions.Consumer;
 import io.reactivex.schedulers.Schedulers;
 
 /**
@@ -66,6 +69,8 @@ public abstract class BaseView {
 
         initListener();
 
+        registRxBus();
+
         setRefreshListener((RefreshListener)this);
     }
 
@@ -81,7 +86,34 @@ public abstract class BaseView {
         this.refreshListener = listener;
     }
 
-    private void refreshViews(){
+    /**
+     * @Description: 注册RxBus
+     *
+     * @Author:  fxp
+     * @Date:    2018/7/19   上午11:57
+     * @param
+     * @return   void
+     * @exception/throws
+     */
+    private void registRxBus() {
+        RxBus.get().register(MessageRxBus.class, new Consumer<MessageRxBus>() {
+            @Override
+            public void accept(MessageRxBus messageRxBus) throws Exception {
+                String id = messageRxBus.getId();
+                String msg = messageRxBus.getMessage();
+                if (id.equals("refresh") ){
+                    refreshUI();
+                }
+            }
+        }, new Consumer<Throwable>() {
+            @Override
+            public void accept(Throwable throwable) throws Exception {
+
+            }
+        });
+    }
+
+    private void refreshUI(){
         if (refreshListener != null){
             refreshListener.refresh();
         }

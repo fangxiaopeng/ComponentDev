@@ -92,7 +92,7 @@ public class HomePageMsgBoardView extends BaseView implements RefreshListener{
 
     @Override
     public void refresh() {
-
+        refreshViews();
     }
 
     /**
