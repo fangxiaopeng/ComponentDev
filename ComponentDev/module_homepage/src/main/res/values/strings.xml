@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">module_homepage</string>
+    <string name="app_name">个人主页</string>
     <string name="lable_projects">开源项目</string>
     <string name="lable_blogs">博客文章</string>
     <string name="lable_view_more">查看更多</string>
