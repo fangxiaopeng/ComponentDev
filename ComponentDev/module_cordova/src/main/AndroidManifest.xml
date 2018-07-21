@@ -27,9 +27,9 @@
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
-        <activity android:name=".activity.MainActivity">
+        <activity android:name=".activity.CordovaFragmentActivity">
             <intent-filter>
-                <action android:name="com.fxp.module_cordova.activity.MainActivity" />
+                <action android:name="com.fxp.module_cordova.activity.CordovaFragmentActivity" />
 
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
