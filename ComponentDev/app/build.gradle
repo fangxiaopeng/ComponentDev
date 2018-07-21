@@ -26,4 +26,6 @@ dependencies {
     implementation project(':module_common')
 
     implementation project(':module_homepage')
+
+    implementation project(':module_cordova')
 }
