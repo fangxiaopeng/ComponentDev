@@ -40,7 +40,12 @@ public class MainFragment extends CordovaFragment{
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        loadUrl("file:///android_asset/www/test/index.html");
+        String pageUrl = getArguments().getString("url");
+        if (pageUrl == null){
+            pageUrl = "file:///android_asset/www/htmlnotfound/error.html";
+        }
+
+        loadUrl(pageUrl);
     }
 
     @Nullable
