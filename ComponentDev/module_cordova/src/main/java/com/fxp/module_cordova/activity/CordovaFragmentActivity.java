@@ -4,7 +4,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
 import com.fxp.module_cordova.R;
-import com.fxp.module_cordova.fragment.MainFragment;
+import com.fxp.module_cordova.fragment.CordovaLoadFragment;
 
 /**  
  * @Description: Activity中使用Fragment加载网页
@@ -33,15 +33,15 @@ public class CordovaFragmentActivity extends AppCompatActivity {
             pageUrl = "file:///android_asset/www/test/index.html";
         }
 
-        addFragment(pageUrl);
+        addCordovaLoadFragment(pageUrl);
     }
 
-    private void addFragment(String url){
-        MainFragment mainFragment = new MainFragment();
+    private void addCordovaLoadFragment(String url){
+        CordovaLoadFragment cordovaLoadFragment = new CordovaLoadFragment();
         Bundle bundle = new Bundle();
         bundle.putString("url", url);
-        mainFragment.setArguments(bundle);
-        getSupportFragmentManager().beginTransaction().add(R.id.root_layout, mainFragment).commitAllowingStateLoss();
+        cordovaLoadFragment.setArguments(bundle);
+        getSupportFragmentManager().beginTransaction().add(R.id.root_layout, cordovaLoadFragment).commitAllowingStateLoss();
     }
 
 }
