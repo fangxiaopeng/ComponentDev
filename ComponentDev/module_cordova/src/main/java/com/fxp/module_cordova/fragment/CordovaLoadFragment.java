@@ -28,11 +28,11 @@ import android.view.ViewGroup;
  * <p>
  * Github:  https://github.com/fangxiaopeng
  */
-public class MainFragment extends CordovaFragment{
+public class CordovaLoadFragment extends CordovaFragment{
 
-    private static final String TAG = MainFragment.class.getSimpleName();
+    private static final String TAG = CordovaLoadFragment.class.getSimpleName();
 
-    public MainFragment(){
+    public CordovaLoadFragment(){
 
     }
 
