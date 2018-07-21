@@ -28,9 +28,9 @@ public class CordovaFragmentActivity extends AppCompatActivity {
 
         Bundle extras = getIntent().getExtras();
         if (extras != null) {
-            pageUrl = extras.getString("startUrl", "file:///android_asset/www/test/index.html");
+            pageUrl = extras.getString("startUrl", "file:///android_asset/homepage/www/html/main-native.html");
         }else {
-            pageUrl = "file:///android_asset/www/test/index.html";
+            pageUrl = "file:///android_asset/homepage/www/html/main-native.html";
         }
 
         addCordovaLoadFragment(pageUrl);
