@@ -19,7 +19,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_cordova_fragment);
 
         timer.schedule(timerTask, 3000, 1000);
 
@@ -38,11 +38,29 @@ public class MainActivity extends AppCompatActivity {
         public void handleMessage(Message msg) {
             super.handleMessage(msg);
 
-            Intent intent = new Intent("com.fxp.module_homepage.activity.MainActivity");
-            ContextUtils.getContext().startActivity(intent);
+//            Intent intent = new Intent("com.fxp.module_homepage.activity.MainActivity");
+//            Intent intent = new Intent("com.fxp.module_homepage.activity.WebHomePageActivity");
+//            ContextUtils.getContext().startActivity(intent);
+
+            String pageUrl = "file:///android_asset/homepage/www/html/main-native.html";
+            toCordovaFragmentActivity(pageUrl);
 
             timer.cancel();
         }
     };
 
+    /**
+     * @Description: 使用CordovaFragmentActivity加载
+     *
+     * @Author:  fxp
+     * @Date:    2018/7/21   下午6:55
+     * @param    url
+     * @return   void
+     * @exception/throws
+     */
+    private void toCordovaFragmentActivity(String url){
+        Intent intent = new Intent("com.fxp.module_cordova.activity.CordovaFragmentActivity");
+        intent.putExtra("startUrl",url);
+        ContextUtils.getContext().startActivity(intent);
+    }
 }
