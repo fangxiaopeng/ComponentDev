@@ -1,0 +1,38 @@
+
+.body-aside{
+    position: absolute;
+    right: 0;
+    width: 20%;
+    height: 100%;
+}
+
+@media (max-width: 768px) {
+    .body-aside{
+        position: absolute;
+        right: 0;
+        width: 20%;
+        height: 100%;
+        display: none;
+    }
+}
+
+.aside-code{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(0,-50%);
+    text-align: center;
+    border: 1px solid lightgray;
+    border-radius: 5px;
+    padding: 0.5rem;
+}
+
+.aside-code-img{
+    width: 100%;
+}
+
+.aside-code-lable{
+    margin: 0;
+    font-size: 1rem;
+    color: gray;
+}

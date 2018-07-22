@@ -1,0 +1,171 @@
+html{
+    height: 100%;
+    width: 100%;
+}
+
+body{
+    background-color: #f9e9c3;
+}
+
+.body-main{
+    margin: 0 20%;
+    width: 60%;
+    height: 100%;
+}
+
+.overflow_omit{
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.main-project{
+    width: 100%;
+    border: 1px solid gray;
+    border-radius: 5px;
+}
+
+.main-project ul{
+    overflow: hidden;
+    padding: 0 !important;
+    margin: 0 !important;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.main-project li{
+    float: left;
+    list-style: none;
+    width: calc(100%/2 - 1rem);
+    padding: 0.5rem;
+}
+
+.main-project h2{
+    height: 1rem;
+    margin: 0;
+    padding: 5px;
+    font-size: 1rem;
+    color: gray;
+}
+
+.main-project section{
+    height: 150px;
+    border: 2px solid rgb(39, 128, 157);
+    border-radius: 10px;
+    background-size: contain;
+    box-shadow: 3px 3px 1px #7a7a7a;
+    padding: 0.5rem 0.2rem;
+}
+
+.main-project section a{
+    text-decoration: none;
+}
+
+.main-project section div{
+    height: calc(100% - 2rem);
+    margin: 0;
+    padding: 5px;
+    font-size: 1rem;
+    color: rgb(39, 128, 157);
+    white-space: normal;
+}
+
+.main-blog{
+    width: 100%;
+    margin:1rem 0;
+    border: 1px solid gray;
+    border-radius: 5px;
+}
+
+.main-blog ul{
+    overflow: hidden;
+    padding: 0 !important;
+    margin: 0 !important;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.main-blog li{
+    float: left;
+    list-style: none;
+    padding: 0.5rem;
+    width: calc(100% - 1rem);
+}
+
+.main-blog section{
+    height: 5rem;
+    border: 2px solid rgb(143, 56, 56);
+    border-radius: 10px;
+    background-size: contain;
+    box-shadow: 3px 3px 1px #7a7a7a;
+    padding: 0.5rem 0.2rem;
+}
+
+.main-blog section a{
+    text-decoration: none;
+}
+
+.main-blog h2{
+    height: 1rem;
+    margin: 0;
+    padding: 5px;
+    font-size: 1rem;
+    color: gray;
+}
+
+.main-blog section div{
+    height: calc(100% - 2rem);
+    margin: 0;
+    padding: 5px;
+    font-size: 1rem;
+    color: rgb(143, 56, 56);
+    white-space: normal;
+}
+
+.main-view_more{
+    text-align: end;
+    font-size: 0.5rem;
+    color: lightcoral;
+    margin: 0.5rem 0.5rem;
+}
+
+@media (max-width: 768px) {
+    .body-main{
+        margin: 0;
+        width: 100%;
+        height: 100%;
+    }
+
+    .main-project section div {
+        height: calc(100% - 2rem);
+        margin: 0;
+        padding: 5px;
+        font-size: 0.7rem;
+        color: rgb(39, 128, 157);
+        white-space: normal;
+    }
+
+    .main-blog h2 {
+        height: 1rem;
+        margin: 0;
+        padding: 1px 5px;
+        font-size: 0.8rem;
+        color: gray;
+    }
+
+    .main-blog section div {
+        height: calc(100% - 2rem);
+        margin: 0;
+        padding: 5px;
+        font-size: 0.7rem;
+        color: rgb(143, 56, 56);
+        white-space: normal;
+    }
+
+    .main-view_more {
+        text-align: end;
+        font-size: 0.3rem;
+        color: lightcoral;
+        margin: 0.2rem 0.5rem;
+    }
+}

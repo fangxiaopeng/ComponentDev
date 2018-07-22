@@ -1,0 +1,19 @@
+{
+    "user_name":"方晓鹏",
+    "user_photo":"../images/photo.jpg",
+    "user_desc":"Android or Web? Of course all!",
+    "user_nav":[
+        {
+            "name":"我的博客",
+            "link":"http://blog.csdn.net/fxp850899969"
+        },
+        {
+            "name":"我的Github",
+            "link":"https://github.com/fangxiaopeng"
+        },
+        {
+            "name":"我的微博",
+            "link":"#"
+        }
+    ]
+}

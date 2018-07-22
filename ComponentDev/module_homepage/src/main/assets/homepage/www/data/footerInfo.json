@@ -1,0 +1,25 @@
+{
+    "copyright":"2018 fxp",
+    "friend_links":[
+        {
+            "name":"CSDN",
+            "link":"https://www.csdn.net/"
+        },
+        {
+            "name":"简书",
+            "link":"https://www.jianshu.com/"
+        },
+        {
+            "name":"掘金",
+            "link":"https://juejin.im/"
+        },
+        {
+            "name":"知乎",
+            "link":"https://www.zhihu.com"
+        },
+        {
+            "name":"慕课网",
+            "link":"https://www.imooc.com/"
+        }
+    ]
+}

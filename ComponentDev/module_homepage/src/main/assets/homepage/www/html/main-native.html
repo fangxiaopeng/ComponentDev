@@ -1,0 +1,82 @@
+<!-- 使用原生js渲染页面 -->
+
+<!DOCTYPE html>
+<html style="font-size:16px">
+
+<head>
+    <meta charset="utf-8">
+    <title>方晓鹏</title>
+    <meta name="Keywords" content="方晓鹏,鹏大帅，鹏超帅,方晓鹏的主页,方晓鹏的博客,Android，Web前端" />
+    <meta name="Description" content="请叫我鹏超帅！" />
+    <link href="../css/header.css" rel="stylesheet">
+    <link href="../css/aside.css" rel="stylesheet">
+    <link href="../css/main.css" rel="stylesheet">
+    <link href="../css/footer.css" rel="stylesheet">
+    <link rel="icon" type="image/x-icon" href="../images/page_icon.ico">
+    <!-- 适应移动端start -->
+    <!-- width viewport 宽度(数值/device-width)
+        height viewport 高度(数值/device-height)
+        initial-scale 初始缩放比例
+        maximum-scale 最大缩放比例
+        minimum-scale 最小缩放比例
+        user-scalable 是否允许用户缩放(yes/no)
+        minimal-ui iOS 7.1 beta 2 中新增属性，在页面加载时最小化上下状态栏
+     -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, minimal-ui">
+    <!-- 删除苹果默认的工具栏和菜单栏 -->
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <!-- 设置苹果工具栏颜色 -->
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <!-- 忽略页面中的数字识别为电话，忽略email识别 -->
+    <meta name="format-detection" content="telphone=no, email=no" />
+    <!-- 启用360浏览器的极速模式(webkit) -->
+    <meta name="renderer" content="webkit">
+    <!-- 避免IE使用兼容模式 -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- 针对手持设备优化，主要是针对一些老的不识别viewport的浏览器，比如黑莓 -->
+    <meta name="HandheldFriendly" content="true">
+    <!-- 微软的老式浏览器 -->
+    <meta name="MobileOptimized" content="320">
+    <!-- uc强制竖屏 -->
+    <meta name="screen-orientation" content="portrait">
+    <!-- QQ强制竖屏 -->
+    <meta name="x5-orientation" content="portrait">
+    <!-- UC强制全屏 -->
+    <meta name="full-screen" content="yes">
+    <!-- QQ强制全屏 -->
+    <meta name="x5-fullscreen" content="true">
+    <!-- UC应用模式 -->
+    <meta name="browsermode" content="application">
+    <!-- QQ应用模式 -->
+    <meta name="x5-page-mode" content="app">
+    <!-- windows phone 点击无高光 -->
+    <meta name="msapplication-tap-highlight" content="no">
+    <!-- 适应移动端end -->
+</head>
+
+<body>
+    <header class="body-header"></header>
+
+    <aside class="body-aside"></aside>
+
+    <main class="body-main">
+        <article class="main-project"></article>
+
+        <article class="main-blog"></article>
+
+        <article>
+            <!-- UY BEGIN -->
+            <div id="uyan_frame"></div>
+            <!-- UY END -->
+        </article>
+    </main>
+
+    <div class="body-footer"></div>
+
+    <script src="../js/utils.js"></script>
+    <script src="../js/main-native.js"></script>
+    <script src="../lib/canvas-nest.js"></script>
+    <!-- <script type="text/javascript" src="http://v2.uyan.cc/code/uyan.js?uid=2155453"></script> -->
+</body>
+
+</html>

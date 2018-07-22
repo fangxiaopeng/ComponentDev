@@ -1,0 +1,126 @@
+
+.body-header{
+    width: 60%;
+    height: 10rem;
+    margin: 1rem 20%;
+    border: 1px solid gray;
+    border-radius: 5px;
+}
+
+.header-user_info{
+    margin: 1rem 0 0 10rem;
+    width: calc(100% - 10rem);
+    height: 6.5rem;
+    overflow: hidden;
+}
+
+.header-user_photo {
+    float: left;
+    height: 8rem;
+    width: 8rem;
+    margin: 1rem;
+    border-radius: 5px;
+}
+
+.header-user_name{
+    font-size: 1.5rem;
+    margin: 1rem 0;
+}
+
+.header-user_desc{
+    height: 2.5rem;
+    font-size: 1rem;
+    color: gray;
+    margin-top: 0;
+    margin-bottom: 0.5rem;
+    overflow: hidden;
+}
+
+.header-nav{
+    margin-left: 10rem;
+    overflow: hidden;
+    height: 1.5rem;
+    bottom: 0;
+}
+
+.nav-ul{
+    overflow: hidden;
+    padding: 0 !important;
+    margin: 0 !important;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    height: 1rem;
+}
+
+.nav-li{
+    float: left;
+    list-style: none;
+    margin-left: 0;
+    margin-right: 1rem;
+}
+
+.nav-li a{
+    line-height: 1rem;
+    display: block;
+    text-decoration: none;
+    color: black;
+    font-style: normal;
+}
+
+@media (max-width: 768px) {
+    .body-header {
+        width: 100%;
+        height: 11.5rem;
+        margin: 1rem 0;
+        border: 1px solid gray;
+        border-radius: 5px;
+    }
+
+    .header-user_info{
+        width: calc(100% - 10rem);
+        height: 9rem;
+        margin: 1rem 0 0 10rem;
+        overflow: hidden;
+    }    
+
+    .header-user_photo {
+        float: left;
+        height: 8rem;
+        width: 8rem;
+        margin: 1rem;
+        border-radius: 100%;
+    }
+
+    .header-user_name{
+        text-align: center;
+        font-size: 1.5rem;
+        margin: 1rem 0;
+    }
+
+    .header-user_desc{
+        height: 4rem;
+        text-align: center;
+        font-size: 1rem;
+        color: gray;
+        margin-top: 0;
+        margin-bottom: 0.5rem;
+        padding: 0 0.5rem;
+        overflow: hidden;
+    }    
+
+    .header-nav{
+        margin-left: 0;
+        overflow: hidden;
+        height: 1.5rem;
+        bottom: 0;
+    }
+
+    .nav-li{
+        float: left;
+        list-style: none;
+        margin-left: 0;
+        margin-right: 0;
+        width: 33%;
+        text-align: center;
+    }
+}

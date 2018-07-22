@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>方晓鹏</title>
+    <meta name="Keywords" content="方晓鹏,鹏大帅，鹏超帅,方晓鹏的主页,方晓鹏的博客,Android，Web前端" />
+    <meta name="Description" content="请叫我鹏超帅！" />
+    <link href="./css/header.css" rel="stylesheet">
+    <link href="./css/aside.css" rel="stylesheet">
+    <link href="./css/main.css" rel="stylesheet">
+    <link href="./css/footer.css" rel="stylesheet">
+    <link rel="icon" type="image/x-icon" href="./images/page_icon.ico">
+    <!-- 适应移动端start -->
+    <!-- width viewport 宽度(数值/device-width)
+        height viewport 高度(数值/device-height)
+        initial-scale 初始缩放比例
+        maximum-scale 最大缩放比例
+        minimum-scale 最小缩放比例
+        user-scalable 是否允许用户缩放(yes/no)
+        minimal-ui iOS 7.1 beta 2 中新增属性，在页面加载时最小化上下状态栏
+     -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, minimal-ui">
+    <!-- 删除苹果默认的工具栏和菜单栏 -->
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <!-- 设置苹果工具栏颜色 -->
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <!-- 忽略页面中的数字识别为电话，忽略email识别 -->
+    <meta name="format-detection" content="telphone=no, email=no" />
+    <!-- 启用360浏览器的极速模式(webkit) -->
+    <meta name="renderer" content="webkit">
+    <!-- 避免IE使用兼容模式 -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- 针对手持设备优化，主要是针对一些老的不识别viewport的浏览器，比如黑莓 -->
+    <meta name="HandheldFriendly" content="true">
+    <!-- 微软的老式浏览器 -->
+    <meta name="MobileOptimized" content="320">
+    <!-- uc强制竖屏 -->
+    <meta name="screen-orientation" content="portrait">
+    <!-- QQ强制竖屏 -->
+    <meta name="x5-orientation" content="portrait">
+    <!-- UC强制全屏 -->
+    <meta name="full-screen" content="yes">
+    <!-- QQ强制全屏 -->
+    <meta name="x5-fullscreen" content="true">
+    <!-- UC应用模式 -->
+    <meta name="browsermode" content="application">
+    <!-- QQ应用模式 -->
+    <meta name="x5-page-mode" content="app">
+    <!-- windows phone 点击无高光 -->
+    <meta name="msapplication-tap-highlight" content="no">
+    <!-- 适应移动端end -->
+</head>
+
+<body>
+    <header class="body-header">
+        <img class="header-user_photo" src="./images/photo.jpg" alt="photo" />
+        <div class="header-user_info">
+            <hgroup>
+                <h1 class="header-user_name">方晓鹏</h1>
+                <h5 class="header-user_desc">Android or Web? Of course all!</h5>
+            </hgroup>
+        </div>
+        <nav class="header-nav">
+            <ul class="nav-ul">
+                <li class="nav-li">
+                    <a href="http://blog.csdn.net/fxp850899969">我的博客</a>
+                </li>
+                <li class="nav-li">
+                    <a href="https://github.com/fangxiaopeng">我的Github</a>
+                </li>
+                <li class="nav-li">
+                    <a href="">我的微博</a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <aside class="body-aside">
+        <div class="aside-code">
+            <img class="aside-code-img" src="./images/code-wechat.jpg" />
+            <p class="aside-code-lable">扫一扫加我好友</p>
+        </div>
+    </aside>
+
+    <main class="body-main">
+        <article class="main-project">
+            <h2>开源项目</h2>
+            <ul>
+                <li>
+                    <section>
+                        <a href="https://github.com/fangxiaopeng/fxp-plugin-video">
+                            <h2 class="overflow_omit">fxp-plugin-video</h2>
+                            <div class="overflow_omit">一款基于海康威视视频SDK二次开发的Cordova插件，支持Android和IOS两个平台。功能如下： 1，播放单路视频（支持指定通道）； 2，播放单路/多路视频（自动适配单路/多路）；
+                                该插件已发布到npm。
+                            </div>
+                        </a>
+                    </section>
+                </li>
+                <li>
+                    <section>
+                        <a href="https://github.com/fangxiaopeng/fangxiaopeng.github.io">
+                            <h2 class="overflow_omit">Personal Home Page</h2>
+                            <div class="overflow_omit">开源Github个人主页，分为三个版本： 1 native版（原生） 2 Vue版 3 BootStrap版 麻雀虽小五脏俱全，适合新手学习使用。原生版本迭代开发中，其他版本后续推出，敬请期待！
+                            </div>
+                        </a>
+                    </section>
+                </li>
+            </ul>
+        </article>
+        <article class="main-blog">
+            <h2>博客文章</h2>
+            <ul>
+                <li>
+                    <section>
+                        <a href="http://blog.csdn.net/fxp850899969/article/details/70158440">
+                            <h2 class="overflow_omit">JS实现二级列表（包含下拉刷新、上拉加载更多、侧滑操作等）</h2>
+                            <div class="overflow_omit">本篇文章讲述的是使用js实现可收缩二级列表，包含以下特性： 1，点击打开／收缩二级列表； 2，列表下拉刷新数据； 3，列表上拉加载更多数据； 4，列表item项可侧滑操作（类似于QQ和微信）；
+                                5，数据缓存；
+                            </div>
+                        </a>
+                    </section>
+                </li>
+                <li>
+                    <section>
+                        <a href="http://blog.csdn.net/fxp850899969/article/details/69951013">
+                            <h2 class="overflow_omit"> echarts3实现柱状图和饼图详解</h2>
+                            <div class="overflow_omit">本篇文章实现的是以下两种需求： 1，使用Echarts3实现柱状图； 2，使用Echarts3实现饼图； 包含Echarts使用过程中遇到的部分坑的解决办法。
+                            </div>
+                        </a>
+                    </section>
+                </li>
+                <li>
+                    <section>
+                        <a href="http://blog.csdn.net/fxp850899969/article/details/53322857">
+                            <h2 class="overflow_omit"> js实现对Android设备物理返回键单击／双击事件处理（Framework7框架）</h2>
+                            <div class="overflow_omit">1,单击事件实现效果为，当前页面为首页时直接退出应用，不是首页时返回上一级; 2,双击事件实现效果为，点击物理返回键时toast提示“连续点击退出应用程序”，1秒内再次点击即退出。
+                            </div>
+                        </a>
+                    </section>
+                </li>
+            </ul>
+            <h3 class="main-view_more">
+                <a href="http://blog.csdn.net/fxp850899969">查看更多</a>
+            </h3>
+        </article>
+        <article>
+            <!-- UY BEGIN -->
+            <div id="uyan_frame"></div>
+            <!-- UY END -->
+        </article>
+    </main>
+    <div class="body-footer">
+        <aside class="footer-aside_link">
+            <a>友情链接：</a>
+            <a href="https://www.csdn.net/">CSDN</a>
+            <span>|</span>
+            <a href="https://www.jianshu.com/">简书</a>
+            <span>|</span>
+            <a href="https://juejin.im/">掘金</a>
+            <span>|</span>
+            <a href="https://www.zhihu.com">知乎</a>
+            <span>|</span>
+            <a href="https://www.imooc.com/">慕课网</a>
+        </aside>
+        <footer>
+            <p class="footer-copyright">Copyright &copy; 2018 fxp</p>
+        </footer>
+    </div>
+    <script src="./lib/canvas-nest.js"></script>
+    <script type="text/javascript" src="http://v2.uyan.cc/code/uyan.js?uid=2155453"></script>
+</body>
+
+</html>
