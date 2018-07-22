@@ -38,12 +38,12 @@ public class MainActivity extends AppCompatActivity {
         public void handleMessage(Message msg) {
             super.handleMessage(msg);
 
-//            Intent intent = new Intent("com.fxp.module_homepage.activity.MainActivity");
-//            Intent intent = new Intent("com.fxp.module_homepage.activity.WebHomePageActivity");
-//            ContextUtils.getContext().startActivity(intent);
+            Intent intent = new Intent("com.fxp.module_homepage.activity.MainActivity");
+            ContextUtils.getContext().startActivity(intent);
 
-            String pageUrl = "file:///android_asset/homepage/www/html/main-native.html";
-            toCordovaFragmentActivity(pageUrl);
+//            String pageUrl = "file:///android_asset/homepage/www/html/main-native.html";
+//            toCordovaFragmentActivity(pageUrl);
+//            toCordovaLoadActivity(pageUrl);
 
             timer.cancel();
         }
@@ -60,6 +60,21 @@ public class MainActivity extends AppCompatActivity {
      */
     private void toCordovaFragmentActivity(String url){
         Intent intent = new Intent("com.fxp.module_cordova.activity.CordovaFragmentActivity");
+        intent.putExtra("startUrl",url);
+        ContextUtils.getContext().startActivity(intent);
+    }
+
+    /**
+     * @Description: 使用CordovaLoadActivity加载
+     *
+     * @Author:  fxp
+     * @Date:    2018/7/21   下午7:13
+     * @param    url
+     * @return   void
+     * @exception/throws
+     */
+    private void toCordovaLoadActivity(String url){
+        Intent intent = new Intent("com.fxp.module_cordova.activity.CordovaLoadActivity");
         intent.putExtra("startUrl",url);
         ContextUtils.getContext().startActivity(intent);
     }
