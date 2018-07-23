@@ -1,9 +1,9 @@
-package com.fxp.componentdev.activity;
+package com.fxp.module_homepage.activity;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
-import com.fxp.componentdev.R;
+import com.fxp.module_homepage.R;
 
 public class PersonalInfoActivity extends AppCompatActivity {
 
