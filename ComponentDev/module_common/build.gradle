@@ -34,6 +34,8 @@ dependencies {
 
     api deps.view.recyclerview
 
+    api deps.view.material_design
+
     api deps.support.glide
 
     api deps.support.gson

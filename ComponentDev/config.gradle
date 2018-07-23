@@ -39,6 +39,7 @@ deps.support = support
 def view = [:]
 view.constraint = "com.android.support.constraint:constraint-layout:$versions.constraint_layout"
 view.recyclerview = "com.android.support:recyclerview-v7:$versions.support"
+view.material_design = "com.android.support:design:$versions.support"
 
 deps.view = view
 
