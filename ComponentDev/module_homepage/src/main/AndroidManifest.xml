@@ -12,6 +12,13 @@
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
+        <activity android:name=".activity.PersonalInfoActivity">
+            <intent-filter>
+                <action android:name="com.fxp.module_homepage.activity.PersonalInfoActivity" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
     </application>
 
 </manifest>
