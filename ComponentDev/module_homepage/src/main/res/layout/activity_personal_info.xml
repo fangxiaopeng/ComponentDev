@@ -19,21 +19,20 @@
             android:layout_height="300dp"
             android:fitsSystemWindows="true"
             app:contentScrim="?attr/colorPrimary"
-            app:expandedTitleMarginEnd="64dp"
-            app:expandedTitleMarginStart="48dp"
-            app:title="123456"
-            app:collapsedTitleGravity="center_vertical"
-            app:expandedTitleGravity="left|bottom"
+            app:titleEnabled = "true"
+            app:title="方晓鹏"
             app:layout_scrollFlags="scroll|exitUntilCollapsed|snap">
 
             <ImageView
                 android:id="@+id/main.backdrop"
                 android:layout_width="match_parent"
-                android:layout_height="250dp"
+                android:layout_height="wrap_content"
                 android:fitsSystemWindows="true"
                 android:scaleType="centerCrop"
                 android:src="@mipmap/img_onepiece"
-                app:layout_collapseMode="parallax"/>
+                app:layout_collapseMode="parallax"
+                android:transitionName="transition_cover_img"
+                app:layout_collapseParallaxMultiplier="0.8"/>
 
             <android.support.v7.widget.Toolbar
                 android:id="@+id/toolbar"
