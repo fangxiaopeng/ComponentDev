@@ -8,6 +8,9 @@ android {
         targetSdkVersion buildVersions.targetSdk
         versionCode 1
         versionName "1.0"
+
+        // 分包，解决65535问题
+        multiDexEnabled true
     }
 
     buildTypes {
@@ -15,6 +18,11 @@ android {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
+    }
+
+    // 分配编译内存
+    dexOptions {
+        javaMaxHeapSize "4g"
     }
 
 }
@@ -29,6 +37,8 @@ dependencies {
     api deps.support.v4_fragment
 
     api deps.support.appcompat_v7
+
+    api deps.support.multidex
 
     api deps.view.constraint
 
