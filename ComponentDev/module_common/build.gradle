@@ -54,4 +54,6 @@ dependencies {
 
     api deps.reactivex.rxjava
 
+    api deps.monitor.blockcanary
+
 }
