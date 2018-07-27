@@ -4,7 +4,9 @@ import android.app.Application;
 import android.content.Context;
 import android.support.multidex.MultiDex;
 
+import com.fxp.module_common.AppBlockCanaryContext;
 import com.fxp.module_common.utils.ContextUtils;
+import com.github.moduth.blockcanary.BlockCanary;
 
 /**
  * Title:       BaseApplication
@@ -41,6 +43,7 @@ public class BaseApplication extends Application {
 
         ContextUtils.init(this);
 
+        BlockCanary.install(this, new AppBlockCanaryContext()).start();
     }
 
     /**  
