@@ -1,6 +1,8 @@
 package com.fxp.module_common.base;
 
 import android.app.Application;
+import android.content.Context;
+import android.support.multidex.MultiDex;
 
 import com.fxp.module_common.utils.ContextUtils;
 
@@ -41,5 +43,18 @@ public class BaseApplication extends Application {
 
     }
 
+    /**  
+     * @Description: 解决android 方法总数超过 65536 问题
+     * 
+     * @Author:  fxp
+     * @Date:    2018/7/27   下午5:53
+     * @param    base
+     * @return   void 
+     * @exception/throws
+     */  
+    protected void attachBaseContext(Context base) {
+        super.attachBaseContext(base);
+        MultiDex.install(this);
+    }
 
 }
