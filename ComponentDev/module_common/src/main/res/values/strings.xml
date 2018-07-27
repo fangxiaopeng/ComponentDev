@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">公共组件</string>
+    <string name="block_canary_display_activity_label">Blocks</string>
 </resources>
