@@ -7,6 +7,7 @@ import android.support.multidex.MultiDex;
 import com.fxp.module_common.AppBlockCanaryContext;
 import com.fxp.module_common.utils.ContextUtils;
 import com.github.moduth.blockcanary.BlockCanary;
+import com.squareup.leakcanary.LeakCanary;
 
 /**
  * Title:       BaseApplication
@@ -43,7 +44,14 @@ public class BaseApplication extends Application {
 
         ContextUtils.init(this);
 
+        // ANR、卡顿检测
         BlockCanary.install(this, new AppBlockCanaryContext()).start();
+
+        // 内存泄露检测
+        if (LeakCanary.isInAnalyzerProcess(this)) {
+            return;
+        }
+        LeakCanary.install(this);
     }
 
     /**  
