@@ -57,3 +57,10 @@ dependencies {
     api deps.monitor.blockcanary
 
 }
+
+dependencies {
+    // 内存泄露检测(LeakCanary)
+    debugImplementation deps.monitor.leakcanary_android
+    releaseImplementation deps.monitor.leakcanary_android_no_op
+    debugImplementation deps.monitor.leakcanary_support_fragment
+}
