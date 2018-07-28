@@ -22,6 +22,7 @@ versions.rxjava = "2.1.3"
 versions.gson = "2.8.1"
 versions.multidex = "1.0.2"
 versions.blockcanary = "1.5.0"
+versions.leakcanary = "1.6.1"
 
 
 /*********************************************** 以下为依赖配置     ***********************************************/
@@ -57,7 +58,9 @@ deps.reactivex = reactivex
 /*********************************** 依赖配置 - monitor    ***********************************/
 def monitor = [:]
 monitor.blockcanary = "com.github.markzhai:blockcanary-android:$versions.blockcanary"
-
+monitor.leakcanary_android = "com.squareup.leakcanary:leakcanary-android:$versions.leakcanary"
+monitor.leakcanary_android_no_op = "com.squareup.leakcanary:leakcanary-android-no-op:$versions.leakcanary"
+monitor.leakcanary_support_fragment = "com.squareup.leakcanary:leakcanary-support-fragment:$versions.leakcanary"
 
 deps.monitor = monitor
 
