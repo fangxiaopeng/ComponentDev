@@ -19,7 +19,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_cordova_fragment);
+        setContentView(R.layout.activity_main);
 
         timer.schedule(timerTask, 3000, 1000);
 
