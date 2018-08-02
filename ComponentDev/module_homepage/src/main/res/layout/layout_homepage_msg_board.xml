@@ -22,6 +22,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="@dimen/dp_5"
+            android:textColor="@color/txt_default"
             android:text="@string/lable_msg_board"/>
 
     </LinearLayout>
@@ -48,6 +49,7 @@
             android:gravity="left"
             android:layout_marginLeft="@dimen/dp_5"
             android:layout_marginBottom="@dimen/dp_1"
+            android:textColor="@color/txt_default"
             android:text="@string/lable_hot_msg"/>
 
         <LinearLayout
@@ -69,6 +71,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textSize="@dimen/sp_12"
+                android:textColor="@color/txt_default"
                 android:text="@string/lable_msg_join"/>
 
             <TextView
@@ -83,6 +86,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textSize="@dimen/sp_12"
+                android:textColor="@color/txt_default"
                 android:text="@string/lable_msg_leave"/>
 
         </LinearLayout>
@@ -120,6 +124,8 @@
             android:padding="@dimen/dp_5"
             android:textSize="@dimen/sp_14"
             android:hint="@string/hint_msg_input"
+            android:textColorHint="@color/txt_default"
+            android:textColor="@color/black"
             android:background="@drawable/bg_round_corners_gray"/>
 
         <TextView
@@ -131,6 +137,7 @@
             android:layout_margin="@dimen/dp_5"
             android:paddingLeft="@dimen/dp_10"
             android:paddingRight="@dimen/dp_10"
+            android:textColor="@color/txt_default"
             android:background="@drawable/bg_round_corners_gray"
             android:text="@string/lable_msg_publish"/>
 
