@@ -24,16 +24,28 @@ android {
         }
     }
 
+    signingConfigs {
+        release {
+            File strFile = new File(".././release.jks")
+            storeFile file(strFile)
+            storePassword "850899969"
+            keyPassword "850899969"
+            keyAlias "fxp"
+        }
+    }
+
     buildTypes {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.release
         }
         debug {
             jniDebuggable false
             renderscriptDebuggable true
             minifyEnabled false
             pseudoLocalesEnabled false
+            signingConfig signingConfigs.release
         }
     }
 
@@ -68,7 +80,7 @@ dependencies {
 
     implementation project(':module_common')
 
-    implementation project(':module_homepage')
+//    implementation project(':module_homepage')
 
-    implementation project(':module_cordova')
+//    implementation project(':module_cordova')
 }
