@@ -21,12 +21,16 @@
         android:fitsSystemWindows="true"
         android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
 
-        <!-- layout_scrollFlags用来指定内部子View应该执行哪些动作，属性值有5种： -->
-        <!-- scroll: AppBarLayout的子View会随着滚动事件一起滚动-->
+        <!-- 本质：CollapsingToolbarLayout继承FrameLayout-->
+        <!-- 作用：CollapsingToolbarLayout是工具栏的包装器,它通常作为AppBarLayout的子View，用来包裹Toolbar的控件 -->
+        <!-- 注意事项：-->
+        <!-- (1)layout_scrollFlags用来指定内部子View应该执行哪些动作，属性值有5种： -->
+        <!-- scroll: AppBarLayout的子View会随着滚动事件一起滚动 -->
         <!-- snap  -->
         <!-- enterAlways -->
         <!-- enterAlwaysCollapsed -->
         <!-- exitUntilCollapsed -->
+        <!-- (2)内部的子View一般都要加上属性：app:layout_collapseMode=""，常用的是parallax，pin。parallax是视差滚动，用在imageView；pin是固定，用在toolbar。-->
         <android.support.design.widget.CollapsingToolbarLayout
             android:id="@+id/collapsingToolbar"
             android:layout_width="match_parent"
