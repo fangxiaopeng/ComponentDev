@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!-- FrameLayout -->
 <android.support.design.widget.CoordinatorLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -7,12 +8,25 @@
     android:background="@android:color/background_light"
     android:fitsSystemWindows="true">
 
+    <!-- 本质：AppBarLayout继承LinearLayout，布局方向是垂直的 -->
+    <!-- 作用：Content布局文件中某个可垂直滚动的View发生滚动事件时，其内部的子View也跟随发生相应变化 -->
+    <!-- 原理：利用Coordinatorlayout的Behavior来关联垂直滚动View和AppBarLayout，实现两者的交互，共同处理Touch事件。 -->
+    <!-- 注意事项：-->
+    <!-- (1)子View应通过setScrollFlags(int)或者xmL中的app:layout_scrollFlags来提供他们的Behavior -->
+    <!-- (2)必须严格地是CoordinatorLayout的子View，不然他一点作用都发挥不出来 -->
+    <!-- (3)AppBarLayout下方的滑动控件，比如RecyclerView，NestedScrollView（与AppBarLayout同属于CoordinatorLayout的子View,并列的关系，）,必须严格地通过在xml中指出其滑动Behavior来与AppBarLayout进行绑定。-->
     <android.support.design.widget.AppBarLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:fitsSystemWindows="true"
         android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
 
+        <!-- layout_scrollFlags用来指定内部子View应该执行哪些动作，属性值有5种： -->
+        <!-- scroll: AppBarLayout的子View会随着滚动事件一起滚动-->
+        <!-- snap  -->
+        <!-- enterAlways -->
+        <!-- enterAlwaysCollapsed -->
+        <!-- exitUntilCollapsed -->
         <android.support.design.widget.CollapsingToolbarLayout
             android:id="@+id/collapsingToolbar"
             android:layout_width="match_parent"
@@ -48,6 +62,7 @@
 
     </android.support.design.widget.AppBarLayout>
 
+    <!-- 设置app:layout_behavior="@string/appbar_scrolling_view_behavior"关联AppBarLayout -->
     <android.support.v4.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
