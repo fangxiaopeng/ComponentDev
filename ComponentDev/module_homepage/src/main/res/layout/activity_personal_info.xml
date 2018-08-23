@@ -5,8 +5,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@android:color/background_light"
-    android:fitsSystemWindows="true">
+    android:background="@android:color/background_light">
 
     <!-- 本质：AppBarLayout继承LinearLayout，布局方向是垂直的 -->
     <!-- 作用：Content布局文件中某个可垂直滚动的View发生滚动事件时，其内部的子View也跟随发生相应变化 -->
@@ -18,7 +17,6 @@
     <android.support.design.widget.AppBarLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:fitsSystemWindows="true"
         android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
 
         <!-- 本质：CollapsingToolbarLayout继承FrameLayout-->
@@ -56,7 +54,6 @@
             <ImageView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:fitsSystemWindows="true"
                 android:scaleType="centerCrop"
                 android:src="@mipmap/img_onepiece"
                 android:transitionName="transition_cover_img"

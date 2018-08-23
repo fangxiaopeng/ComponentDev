@@ -12,7 +12,8 @@
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
-        <activity android:name=".activity.PersonalInfoActivity">
+        <activity android:name=".activity.PersonalInfoActivity"
+            android:theme="@style/TranslucentTheme">
             <intent-filter>
                 <action android:name="com.fxp.module_homepage.activity.PersonalInfoActivity" />
 
