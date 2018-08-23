@@ -24,13 +24,23 @@
         <!-- 本质：CollapsingToolbarLayout继承FrameLayout-->
         <!-- 作用：CollapsingToolbarLayout是工具栏的包装器,它通常作为AppBarLayout的子View，用来包裹Toolbar的控件 -->
         <!-- 注意事项：-->
-        <!-- (1)layout_scrollFlags用来指定内部子View应该执行哪些动作，属性值有5种： -->
-        <!-- scroll: AppBarLayout的子View会随着滚动事件一起滚动 -->
-        <!-- snap  -->
-        <!-- enterAlways -->
-        <!-- enterAlwaysCollapsed -->
-        <!-- exitUntilCollapsed -->
-        <!-- (2)内部的子View一般都要加上属性：app:layout_collapseMode=""，常用的是parallax，pin。parallax是视差滚动，用在imageView；pin是固定，用在toolbar。-->
+        <!-- (1)layout_scrollFlags，指定AppBarLayout子View（以下简称子View）应该执行哪些动作，属性值有5种： -->
+        <!-- scroll: 子View将会响应Scroll事件 -->
+        <!-- snap：在Scroll滑动事件结束以前，如果子View部分可见，那么NestedScrollView将会停在最近子View的位置 -->
+        <!-- enterAlways：设置app:layout_scrollFlags="scroll|enterAlways"时，AppBarLayout在下拉时直接显示，并不会考虑NestedScrollView滚动的位置 -->
+        <!-- enterAlwaysCollapsed：设置app:layout_scrollFlags="scroll|enterAlways|enterAlwaysCollapsed"，同时顶部栏的Toolbar设置minHeight属性时，下拉后会先显示最小高度，到顶部时显示完全 -->
+        <!-- exitUntilCollapsed：设置app:layout_scrollFlags="scroll|exitUntilCollapsed"，同时顶部栏的Toolbar设置minHeight属性时。当NestedScrollView向上滚动至顶部栏的最小高度后，AppBarLayout不再收缩。下拉时，如果NestedScrollView没有到达最顶部，只显示顶部栏最小高度 -->
+        <!-- (2)title，设置标题 -->
+        <!-- (3)expandedTitleTextAppearance/collapsedTitleTextAppearance，设置未折叠状态下字体样式和设置折叠后字体样式 -->
+        <!-- (4)ExpandedTitleColor/CollapsedTitleTextColor，设置还没收缩时状态下字体颜色与收缩后Toolbar上字体的颜色 -->
+        <!-- (5)expendsTitleMargin，未折叠时字体四周的margin值 -->
+        <!-- (6)contentScrim，ToolBar被折叠到顶部固定后的背景 -->
+        <!-- (7)Status bar scrim，根据滚动位置是否到达一个阀值决定是否对状态栏“盖上纱布”，可以通过setStatusBarScrim(Drawable)来设置纱布图片，只在LOLLIPOP设备上有用 -->
+        <!-- (8)CollapsingToolbarLayout的子View一般都要加上layout_collpaseMode属性，用于设置CollapsingToolbarLayout滑动时子视图的折叠模式 -->
+        <!-- parallax：视差模式，在折叠的时候会有个视差折叠的效果，常用在imageView -->
+        <!-- pin：固定固定模式，在折叠的时候最后固定在顶端，常用在toolbar -->
+        <!-- (9)CollapsingToolbarLayout的子View一般会加上layout_collapseParallaxMultiplier属性，用于设置CollapsingToolbarLayout滑动时子视图的视觉差 -->
+        <!-- 这个值的范围为0.0-1.0之间。为0的时候，你可以感觉到视图完全随NestedScrollView滚动；为1的时候，似乎又是完全不滚动 -->
         <android.support.design.widget.CollapsingToolbarLayout
             android:id="@+id/collapsingToolbar"
             android:layout_width="match_parent"
@@ -38,6 +48,7 @@
             android:fitsSystemWindows="true"
             app:contentScrim="?attr/colorPrimary"
             app:titleEnabled = "true"
+            app:title="方晓鹏"
             app:collapsedTitleTextAppearance="@style/ToolbarTitle"
             app:layout_scrollFlags="scroll|exitUntilCollapsed|snap">
 
@@ -52,6 +63,9 @@
                 app:layout_collapseMode="parallax"
                 app:layout_collapseParallaxMultiplier="0.8"/>
 
+            <!-- 注意事项：-->
+            <!-- (1)CollapsingToolbarLayout设置layout_scrollFlags属性为enterAlwaysCollapsed或exitUntilCollapsed时，一定要给Toolbar设置minHeight属性 -->
+            <!-- (2)将Toolbar设置为supportActionBar之后，除了NavigationIcon之外，其他属性设置无效。所以将Toolbar设置为supportActionBar之前，一定要设置好除了NavigationIcon之外的属性 -->
             <android.support.v7.widget.Toolbar
                 android:id="@+id/toolbar"
                 app:navigationIcon="@mipmap/icon_back_64"
@@ -59,7 +73,6 @@
                 android:layout_height="?attr/actionBarSize"
                 app:layout_collapseMode="pin"
                 android:minHeight="?attr/actionBarSize"
-                app:title="方晓鹏"
                 app:popupTheme="@style/Widget.Design.CollapsingToolbar"/>
 
         </android.support.design.widget.CollapsingToolbarLayout>
