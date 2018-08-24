@@ -1,1 +1,1 @@
-include ':app', ':module_common', ':module_homepage', ':module_cordova'
+include ':app', ':module_common', ':module_homepage', ':module_cordova', ':module_personalpage'
