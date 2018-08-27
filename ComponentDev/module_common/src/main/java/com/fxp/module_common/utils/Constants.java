@@ -49,6 +49,13 @@ public class Constants {
     public final static String PATH_HOMEPAGE_FOOTERINFO = "homepage/api/footerInfo.json";
 
 
+    /************************************************ 本地路径配置 ************************************************/
+    /**
+     * Web版本个人主页
+     */
+    public final static String PATH_HOMEPAGE_INDEX = "file:///android_asset/homepage/www/html/main-native.html";
+
+
     /************************************************ 隐式调用action ************************************************/
     /**
      * WebView容器，Activity-Web
@@ -59,5 +66,15 @@ public class Constants {
      * WebView容器，Activity-Fragment-Web
      */
     public final static String ACTION_WEBVIEW_ACTIVITY2 = "com.fxp.module_cordova.activity.CordovaFragmentActivity";
+
+    /**
+     * 个人主页
+     */
+    public final static String ACTION_HOMEPAGE_ACTIVITY = "com.fxp.module_homepage.activity.MainActivity";
+
+    /**
+     * 个人信息
+     */
+    public final static String ACTION_USERINFO_ACTIVITY = "com.fxp.module_personalpage.activity.MainActivity";
 
 }
