@@ -51,8 +51,13 @@ public class Constants {
 
     /************************************************ 隐式调用action ************************************************/
     /**
-     * WebView容器Activity
+     * WebView容器，Activity-Web
      */
-    public final static String ACTION_WEBVIEW_ACTIVITY = "";
+    public final static String ACTION_WEBVIEW_ACTIVITY1 = "com.fxp.module_cordova.activity.CordovaLoadActivity";
+
+    /**
+     * WebView容器，Activity-Fragment-Web
+     */
+    public final static String ACTION_WEBVIEW_ACTIVITY2 = "com.fxp.module_cordova.activity.CordovaFragmentActivity";
 
 }
