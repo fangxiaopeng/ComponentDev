@@ -193,8 +193,8 @@ public abstract class BaseView {
     private void openWithCustomWebView(String url){
         try {
             Intent intent = new Intent();
-            intent.setComponent(new ComponentName(context.getPackageName(), Constants.ACTION_WEBVIEW_ACTIVITY));
-            intent.putExtra("link", url);
+            intent.setComponent(new ComponentName(context.getPackageName(), Constants.ACTION_WEBVIEW_ACTIVITY1));
+            intent.putExtra("startUrl", url);
             context.startActivity(intent);
         } catch (Exception e) {
             e.printStackTrace();
