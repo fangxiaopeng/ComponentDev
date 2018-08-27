@@ -82,5 +82,7 @@ dependencies {
 
     implementation project(':module_homepage')
 
+    implementation project(':module_personalpage')
+
     implementation project(':module_cordova')
 }
