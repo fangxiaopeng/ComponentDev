@@ -10,4 +10,11 @@
     <string name="lable_msg_leave">人留言</string>
     <string name="hint_msg_input">来说两句吧……</string>
     <string name="lable_msg_publish">发表留言</string>
+
+    <string name="navigation_drawer_open">打开左侧栏</string>
+    <string name="navigation_drawer_close">关闭左侧栏</string>
+    <string name="lable_user_name">方晓鹏</string>
+    <string name="lable_user_email">850899969@qq.com</string>
+    <string name="lable_user_info">个人信息</string>
+    <string name="lable_web_version">Web版本</string>
 </resources>
