@@ -1,13 +1,13 @@
 package com.fxp.componentdev.activity;
 
-import android.content.Intent;
+import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 
 import com.fxp.componentdev.R;
 import com.fxp.module_common.utils.ContextUtils;
+import com.fxp.module_common.utils.IntentUtils;
 
 import java.util.Timer;
 import java.util.TimerTask;
@@ -21,8 +21,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        timer.schedule(timerTask, 3000, 1000);
-
+        timer.schedule(timerTask, 1000, 1000);
     }
 
     private Timer timer = new Timer();
@@ -38,44 +37,10 @@ public class MainActivity extends AppCompatActivity {
         public void handleMessage(Message msg) {
             super.handleMessage(msg);
 
-            Intent intent = new Intent("com.fxp.module_homepage.activity.MainActivity");
-            ContextUtils.getContext().startActivity(intent);
-
-//            String pageUrl = "file:///android_asset/homepage/www/html/main-native.html";
-//            toCordovaFragmentActivity(pageUrl);
-//            toCordovaLoadActivity(pageUrl);
+            IntentUtils.startActivity(ContextUtils.getContext(), IntentUtils.getHomePageIntent());
 
             timer.cancel();
         }
     };
 
-    /**
-     * @Description: 使用CordovaFragmentActivity加载
-     *
-     * @Author:  fxp
-     * @Date:    2018/7/21   下午6:55
-     * @param    url
-     * @return   void
-     * @exception/throws
-     */
-    private void toCordovaFragmentActivity(String url){
-        Intent intent = new Intent("com.fxp.module_cordova.activity.CordovaFragmentActivity");
-        intent.putExtra("startUrl",url);
-        ContextUtils.getContext().startActivity(intent);
-    }
-
-    /**
-     * @Description: 使用CordovaLoadActivity加载
-     *
-     * @Author:  fxp
-     * @Date:    2018/7/21   下午7:13
-     * @param    url
-     * @return   void
-     * @exception/throws
-     */
-    private void toCordovaLoadActivity(String url){
-        Intent intent = new Intent("com.fxp.module_cordova.activity.CordovaLoadActivity");
-        intent.putExtra("startUrl",url);
-        ContextUtils.getContext().startActivity(intent);
-    }
 }
