@@ -1,6 +1,8 @@
 package com.fxp.module_homepage.activity;
 
 import android.content.Context;
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.NavigationView;
@@ -20,6 +22,8 @@ import com.fxp.module_common.utils.ContextUtils;
 import com.fxp.module_common.utils.IntentUtils;
 import com.fxp.module_homepage.R;
 import com.fxp.module_homepage.controller.HomePageMainController;
+
+import java.io.File;
 
 /**
  * 个人主页
@@ -140,7 +144,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     // 跳转到Web版本
                     IntentUtils.startActivity(context, IntentUtils.getWebViewIntent1(Constants.PATH_HOMEPAGE_INDEX));
                 } else if (id == R.id.nav_share) {// Handle the nav_share action
-
+//                    shareFile(context.getApplicationInfo().publicSourceDir);
                 } else if (id == R.id.nav_send) {// Handle the nav_send action
 
                 } else {
@@ -155,6 +159,31 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 return true;
             }
         });
+    }
+
+    /**
+     * @Description: 分享文件
+     *
+     * @Author:  fxp
+     * @Date:    2018/8/29   下午3:16
+     * @param    filePath
+     * @return   void
+     * @exception/throws
+     */
+    private void shareFile(String filePath) {
+        try{
+            File file = new File(filePath);
+            Intent intent = new Intent();
+            intent.setAction(Intent.ACTION_SEND);
+            intent.addCategory("android.intent.category.DEFAULT");
+            intent.setType("*/*");
+            intent.putExtra(Intent.EXTRA_STREAM, Uri.fromFile(file));
+            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+            intent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
+            startActivity(intent);
+        }catch (Exception e){
+            e.printStackTrace();
+        }
     }
 
     @Override
