@@ -21,6 +21,8 @@ var native = {
 
         this.rendBlogInfo();
 
+        this.rendMsgBoardInfo();
+
         this.rendAsideInfo();
 
         this.rendFooter();
@@ -53,6 +55,14 @@ var native = {
         utils.get("../data/blogInfo.json", function (res) {
             var html = native.buildBlogBox(JSON.parse(res));
             document.getElementsByClassName("main-blog")[0].innerHTML = html;
+        }, function (error) {
+            console.log(error);
+        });
+    },
+    rendMsgBoardInfo: function () {
+        utils.get("../data/msgBoardInfo.json", function (res) {
+            var html = native.buildMsgBoardBox(JSON.parse(res));
+            document.getElementsByClassName("main-message")[0].innerHTML = html;
         }, function (error) {
             console.log(error);
         });
@@ -96,7 +106,9 @@ var native = {
         return asideHtml;
     },
     buildProjectBox: function (data) {
-        var projectHtml = "<h2>开源项目</h2><ul>";
+        var projectHtml = "<div class='module'>"+
+        "<img class='module-icon' src='../images/icon_github.png'>"+
+        "<span class='module-title'>开源项目</span></div><ul>";
         for (var i = 0, len = data.project_list.length; i < len; i++) {
             projectHtml += "<li>" +
                 "<section>" +
@@ -111,7 +123,9 @@ var native = {
         return projectHtml;
     },
     buildBlogBox: function (data) {
-        var blogHtml = "<h2>博客文章</h2><ul>";
+        var blogHtml = "<div class='module'>"+
+        "<img class='module-icon' src='../images/icon_blog.png'>"+
+        "<span class='module-title'>博客文章</span></div><ul>";
         for (var i = 0, len = data.article_list.length; i < len; i++) {
             blogHtml += "<li>" +
                 "<section>" +
@@ -124,6 +138,48 @@ var native = {
         }
         blogHtml += "</ul><h3 class='main-view_more'><a href='" + data.blog_address + "'>查看更多</a></h3>";
         return blogHtml;
+    },
+    buildMsgBoardBox: function (data) {
+        var msgBoardHtml = "<div class='module'>"+
+        "<img class='module-icon' src='../images/icon_msg_board.png'>"+
+        "<span class='module-title'>留言板</span></div>";
+
+        msgBoardHtml += "<div class='msg-head'><div class='msg-title'><div class='line-v'></div><label>热门留言</label></div>" +
+                "<div class='msg-desc'>" + 
+                    "<label class='desc-num'>" + data.joinNum + "</label><label>人参与，</label>" +
+                    "<label class='desc-num'>" + data.msgNum + "</label><label>人留言</label>" +
+                "</div></div>" +
+            "<div class='line-h'></div><ul class='msg-ul-outer'>";
+            for(var i=0; i<data.msgInfos.length; i++){
+                msgBoardHtml += "<li class='msg-li-outer'>" +
+                    "<div>" +
+                        "<img class='msg-user-photo' src='../images/photo_default_man.png'>"+
+                        "<div class='msg-user-info'>"+
+                            "<div>"+
+                                "<span>" + data.msgInfos[i].msgUser.userName + "</span>"+
+                                "<div class='f_r'>"+
+                                    "<img src='../images/icon_like.png'><label>" + data.msgInfos[i].msgThumbNum + "</label>"+
+                                    "<img src='../images/icon_comment.png'><label>" + data.msgInfos[i].msgCommentNum + "</label>"+
+                                "</div>"+
+                            "</div><div>"+
+                                "<label>"+ data.msgInfos[i].msgCreateTime + "</label><label>" + data.msgInfos[i].msgCreateAddress + "</label>" +
+                            "</div></div>" +
+                    "</div>" +
+                    "<div class='msg-content'>" + data.msgInfos[i].msgContent + "</div><ul class='msg-ul-inner'>";
+                for(var j=0; j<data.msgInfos[i].commentInfos.length; j++){
+                    msgBoardHtml += "<li class='msg-li-inner'><div>"+
+                                "<div class='line-inner-v'></div>"+
+                                "<label>" + data.msgInfos[i].commentInfos[j].commentUser.userName + "</label><span>回复</span><label>"
+                                 + data.msgInfos[i].commentInfos[j].targetUser.userName + "</label>：<span>" + data.msgInfos[i].commentInfos[j].commentContent + "</span>"+
+                            "</div></li>";
+                }
+                msgBoardHtml += "</ul>";
+            }
+            msgBoardHtml += "</ul>";
+            
+        msgBoardHtml += "<div class='main-message_input'><textarea placeholder='来说两句吧...' maxLength='60'></textarea></div>" +
+            "<div class='main-message_publish'><label>发表留言</label></div>";
+        return msgBoardHtml;
     },
     buildFooterBox: function (data) {
         var friendLinksHtml = "<aside class='footer-aside_link'><a>友情链接：</a>";

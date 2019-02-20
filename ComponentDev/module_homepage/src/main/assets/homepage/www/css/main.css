@@ -13,10 +13,37 @@ body{
     height: 100%;
 }
 
+.f_l{
+    float: left;
+}
+
+.f_r{
+    float: right
+}
+
 .overflow_omit{
     overflow: hidden;
     white-space: nowrap;
     text-overflow: ellipsis;
+}
+
+.module{
+    height: 2rem;
+}
+
+.module-icon{
+    width: 1.5rem;
+    margin: 0.4rem 0 0 0.5rem;
+    float: left;
+}
+
+.module-title{
+    color: #808080;
+    font-size: 1rem;
+    font-weight: bold;
+    margin-top: 0.5rem;
+    margin-left: 0.2rem;
+    float: left;
 }
 
 .main-project{
@@ -121,6 +148,176 @@ body{
     color: rgb(143, 56, 56);
     white-space: normal;
 }
+
+/** 留言板部分样式 - start **/
+.main-message{
+    width: 100%;
+    border: 1px solid gray;
+    border-radius: 5px;
+}
+
+.main-message h2{
+    height: 1rem;
+    margin: 0;
+    padding: 5px;
+    font-size: 1rem;
+    color: gray;
+}
+
+.msg-head{
+    height: 1.5rem;
+    margin: 1rem 0.5rem 0 0.5rem;
+}
+
+.msg-head label{
+    font-size: 0.8rem;
+    color: gray;
+}
+
+.msg-title{
+    float: left;
+}
+
+.msg-title label{
+    margin-left: 0.2rem;
+}
+
+.msg-desc{
+    float: right;
+}
+
+.desc-num{
+    font-size: 1rem !important;
+    color: black !important;
+}
+
+.line-v{
+    float: left;
+    width: 3px;
+    height: 1.3rem;
+    background: darkgray;
+}
+
+.line-h{
+    clear: both;
+    width: calc(100% - 1rem);
+    height: 1px;
+    margin: 0 0.5rem;
+    background: darkgray;
+}
+
+.msg-ul-outer{
+    overflow: hidden;
+    padding: 0 !important;
+    margin: 0 0 2rem 0 !important;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.msg-li-outer{
+    float: left;
+    list-style: none;
+    padding: 0.5rem;
+    margin-top: 1rem;
+    width: calc(100% - 1rem);
+}
+
+.msg-user-photo{
+    width: 3rem;
+}
+
+.msg-user-info{
+    height: 3rem;
+    width: calc(100% - 3.5rem);
+    margin-left: 0.5rem;
+    float: right;
+}
+
+.msg-user-info img{
+    width: 1rem;
+}
+
+.msg-user-info span{
+    color: #576b95;
+    font-size: 1rem;
+}
+
+.msg-user-info label{
+    font-size: 0.8rem;
+    color: gray;
+    padding: 0.3rem;
+}
+
+.msg-content{
+    margin-left: 3.5rem;
+    color: black;
+    font-size: 1rem;
+    white-space: normal;
+}
+
+.msg-ul-inner{
+    overflow: hidden;
+    padding: 0 !important;
+    margin-left: 3.5rem !important;
+    margin-top: 0.5rem;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.msg-li-inner{
+    list-style: none;
+}
+
+.line-inner-v{
+    float: left;
+    height: 1rem;
+    width: 3px;
+    margin-top: 0.2rem;
+    margin-right: 0.3rem;
+    background: darkgray;
+}
+
+.msg-li-inner label{
+    white-space: normal;
+    color: #576b95;
+    font-size: 0.9rem;
+}
+
+.msg-li-inner span{
+    white-space: normal;
+    color: gray;
+    font-size: 0.9rem;
+}
+
+.main-message_input{
+    margin: 0 0.5rem 0.5rem 0.5rem;
+}
+
+.main-message div textarea{
+    width: calc(100% - 0.5rem);
+    height: 5rem;
+    background: transparent;
+    border-radius: 10px;
+    background-size: contain;
+    padding: 0.5rem 0.2rem;
+    font-size: 1rem;
+    white-space: normal;
+}
+
+.main-message_publish{
+    text-align: end;
+    font-size: 0.5rem;
+    margin: 0 0.5rem 1rem 0.5rem;
+}
+
+.main-message_publish label{
+    border: 1px solid gray;
+    border-radius: 5px;
+    background-size: contain;
+    color: gray;
+    padding: 0.2rem 0.5rem;
+}
+/** 留言板部分样式 - end **/
 
 .main-view_more{
     text-align: end;

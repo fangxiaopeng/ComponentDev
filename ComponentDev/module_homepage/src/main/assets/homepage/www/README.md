@@ -1,9 +1,9 @@
 # 欢迎来到鹏超帅的个人主页
 
-## [鹏超帅个人主页Github](https://github.com/fangxiaopeng/fangxiaopeng.github.io)
+## 鹏超帅个人主页原生版
 
 
-[点击](https://fangxiaopeng.github.io/native/html/main-native.html)浏览效果
+[点击](https://fangxiaopeng.github.io/native/index.html)浏览效果
 
 ### 技术点
 *****

@@ -85,7 +85,10 @@
 
     <main class="body-main">
         <article class="main-project">
-            <h2>开源项目</h2>
+            <div class="module">
+                <img class="module-icon" src="../native/images/icon_github.png">
+                <span class="module-title">开源项目</span>
+            </div>
             <ul>
                 <li>
                     <section>
@@ -109,7 +112,10 @@
             </ul>
         </article>
         <article class="main-blog">
-            <h2>博客文章</h2>
+            <div class="module">
+                <img class="module-icon" src="../native/images/icon_blog.png">
+                <span class="module-title">博客文章</span>
+            </div>
             <ul>
                 <li>
                     <section>
@@ -144,6 +150,95 @@
                 <a href="http://blog.csdn.net/fxp850899969">查看更多</a>
             </h3>
         </article>
+        <article class="main-message">
+            <div class="module">
+                <img class="module-icon" src="../native/images/icon_msg_board.png">
+                <span class="module-title">留言板</span>
+            </div>
+            <div class="msg-head">
+                <div class="msg-title">
+                    <div class="line-v"></div>
+                    <label>热门留言</label>
+                </div>
+                <div class="msg-desc">
+                    <label class="desc-num">48</label>
+                    <label>人参与，</label>
+                    <label class="desc-num">2</label>
+                    <label>人留言</label>
+                </div>                            
+            </div>
+            <div class="line-h"></div>
+            <ul class="msg-ul-outer">
+                <li class="msg-li-outer">
+                    <div>
+                        <img class="msg-user-photo" src="../native/images/photo_default_man.png">
+                        <div class="msg-user-info">
+                            <div>
+                                <span>卓诺不迷路</span>
+                                <div class="f_r">
+                                    <img src="../native/images/icon_like.png">
+                                    <label>45</label>
+                                    <img src="../native/images/icon_comment.png">
+                                    <label>0</label>
+                                </div>
+                            </div>
+                            <div>
+                                <label>2018年7月17日 下午2:15 </label>
+                                <label>   深圳市·公安局 </label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="msg-content">这个沙发我坐定了，哈哈哈</div>
+                </li>
+                <li class="msg-li-outer">
+                    <div>
+                        <img class="msg-user-photo" src="../native/images/photo_default_man.png">
+                        <div class="msg-user-info">
+                            <div>
+                                <span>哥尔·D·罗杰</span>
+                                <div class="f_r">
+                                    <img src="../native/images/icon_like.png">
+                                    <label>3</label>
+                                    <img src="../native/images/icon_comment.png">
+                                    <label>2</label>
+                                </div>
+                            </div>
+                            <div>
+                                <label>2018年7月17日 下午2:18 </label>
+                                <label>   伟大航路·罗格镇 </label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="msg-content">想要我的财宝吗？想要的话可以全部给你，去找吧！我把所有财宝都放在那里</div>
+                    <ul class="msg-ul-inner">
+                        <li class="msg-li-inner">
+                            <div>
+                                <div class="line-inner-v"></div>
+                                <label>卓诺不迷路</label>
+                                <span>回复</span>
+                                <label>哥尔·D·罗杰</label>：
+                                <span>受尽苦难而不厌，此乃修罗之道</span>
+                            </div>
+                        </li>
+                        <li class="msg-li-inner">
+                            <div>
+                                <div class="line-inner-v"></div>
+                                <label>哥尔·D·罗杰</label>
+                                <span>回复</span>
+                                <label>卓诺不迷路</label>：
+                                <span>世代传承的意志，时代的变迁，人的梦想，这些都是无法阻止的</span>
+                            </div>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+            <div class="main-message_input">
+                <textarea placeholder="来说两句吧..." maxLength="60"></textarea>
+            </div>
+            <div class="main-message_publish">
+                <label>发表留言</label>
+            </div>
+        </article>
         <article>
             <!-- UY BEGIN -->
             <div id="uyan_frame"></div>
@@ -167,8 +262,24 @@
             <p class="footer-copyright">Copyright &copy; 2018 fxp</p>
         </footer>
     </div>
-    <script src="./lib/canvas-nest.js"></script>
-    <script type="text/javascript" src="http://v2.uyan.cc/code/uyan.js?uid=2155453"></script>
+    <script>
+        var screen_big = window.matchMedia('(min-width:1200px)');
+        var screen_midle = window.matchMedia('(min-width:992px)');
+        var screen_small = window.matchMedia('(min-width:768px)');
+        var screen_tiny = window.matchMedia('(max-width:768px)');
+        if(screen_big.matches) {
+            console.log("大屏幕(>=1200)");
+            document.write("<script type='text/javascript' src='./lib/canvas-nest.js'/><\/script>");
+        }else if(screen_midle.matches){
+            console.log("中等屏幕(>=992&<=1200)");
+            document.write("<script type='text/javascript' src='./lib/canvas-nest.js'/><\/script>");
+        }else if(screen_small.matches){
+            console.log("小屏幕(>=768&<=992)");
+            document.write("<script type='text/javascript' src='./lib/canvas-nest.js'/><\/script>");
+        }else{
+            console.log("超小屏幕(<=768)");
+        }
+    </script>
 </body>
 
 </html>

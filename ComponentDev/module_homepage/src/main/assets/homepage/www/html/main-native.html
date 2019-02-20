@@ -64,6 +64,8 @@
 
         <article class="main-blog"></article>
 
+        <article class="main-message"></article>
+
         <article>
             <!-- UY BEGIN -->
             <div id="uyan_frame"></div>
@@ -75,7 +77,24 @@
 
     <script src="../js/utils.js"></script>
     <script src="../js/main-native.js"></script>
-    <script src="../lib/canvas-nest.js"></script>
+    <script>
+        var screen_big = window.matchMedia('(min-width:1200px)');
+        var screen_midle = window.matchMedia('(min-width:992px)');
+        var screen_small = window.matchMedia('(min-width:768px)');
+        var screen_tiny = window.matchMedia('(max-width:768px)');
+        if(screen_big.matches) {
+            console.log("大屏幕(>=1200)");
+            document.write("<script type='text/javascript' src='../lib/canvas-nest.js'/><\/script>");
+        }else if(screen_midle.matches){
+            console.log("中等屏幕(>=992&<=1200)");
+            document.write("<script type='text/javascript' src='../lib/canvas-nest.js'/><\/script>");
+        }else if(screen_small.matches){
+            console.log("小屏幕(>=768&<=992)");
+            document.write("<script type='text/javascript' src='../lib/canvas-nest.js'/><\/script>");
+        }else{
+            console.log("超小屏幕(<=768)");
+        }
+    </script>
     <!-- <script type="text/javascript" src="http://v2.uyan.cc/code/uyan.js?uid=2155453"></script> -->
 </body>
 
