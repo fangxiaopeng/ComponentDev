@@ -1,16 +1,43 @@
 apply plugin: 'com.android.application'
 
+def releaseDate() {
+    return new Date().format("yyyy_MM_dd", TimeZone.getTimeZone("UTC"))
+//    return new Date().format("yyyy-MM-dd aa hh:mm:ss", TimeZone.getTimeZone("UTC"))
+}
+
+def appId = rootProject.ext.android.appId
+
 android {
     compileSdkVersion buildVersions.compileSdk
 
+    signingConfigs {
+        release {
+            // 签名证书文件
+            File strFile = new File(".././release.jks")
+            storeFile file(strFile)
+            // 签名证书文件密码
+            storePassword "850899969"
+            // 签名证书 秘钥别名
+            keyAlias "fxp"
+            // 签名证书 秘钥密码
+            keyPassword "850899969"
+            // 是否开启V2打包
+            v2SigningEnabled true
+        }
+    }
+
     defaultConfig {
-        applicationId "com.fxp.componentdev"
-//        applicationId "com.fxp.module_homepage"
+        applicationId appId
         minSdkVersion buildVersions.minSdk
         targetSdkVersion buildVersions.targetSdk
-        versionCode 1
-        versionName "1.0"
+        versionCode rootProject.ext.android.versionCode
+        versionName rootProject.ext.android.versionName
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+
+        /**
+         * 自定义变量
+         */
+        buildConfigField "String", "BUILD_TIME", "\"${releaseDate()}\""
 
         /**
          * 根据包名更改manifest配置
@@ -22,15 +49,39 @@ android {
             resValue "string", "app_name", "个人主页"
             manifestPlaceholders = [fxpExcludeFromRecents: true, fxpTaskAffinity: applicationId, fxpApplicationIcon: "@mipmap/icon_launcher_homepage"]
         }
+
+        signingConfig signingConfigs.release    // signingConfigs 须在 defaultConfig之前定义，否则会报错
+
+        multiDexEnabled true     // 是否开启分包
+
+        resConfigs('zh-rCN')    // 只保留指定和默认资源
+
+        /**
+         * 配置so库CPU架构（真机arm，模拟器x86）
+         */
+        ndk {
+            abiFilters('armeabi', 'armeabi-v7a')
+        }
     }
 
-    signingConfigs {
-        release {
-            File strFile = new File(".././release.jks")
-            storeFile file(strFile)
-            storePassword "850899969"
-            keyPassword "850899969"
-            keyAlias "fxp"
+    android.applicationVariants.all { variant ->
+        variant.outputs.all {
+            outputFileName = rootProject.ext.android.appName + "_V${variant.versionName}_${releaseDate()}.apk"
+        }
+    }
+
+    // 多渠道打包
+    flavorDimensions "default"
+    productFlavors {
+        productA {
+            dimension "default"
+            resValue "string", "app_name", rootProject.ext.android.appName
+            manifestPlaceholders = [fxpExcludeFromRecents: false, fxpTaskAffinity: appId, fxpApplicationIcon: "@mipmap/icon_component"]
+        }
+        productB {
+            dimension "default"
+            resValue "string", "app_name", rootProject.ext.android.appName
+            manifestPlaceholders = [fxpExcludeFromRecents: true, fxpTaskAffinity: appId, fxpApplicationIcon: "@mipmap/icon_launcher_homepage"]
         }
     }
 
@@ -49,20 +100,76 @@ android {
         }
     }
 
+    sourceSets {
+        main {
+
+        }
+
+        productA.res.srcDirs = ['src/main/res-A']
+
+        debug.setRoot('build-types/debug')
+
+        release.setRoot('build-types/release')
+    }
+
+    /**
+     * 对adb操作选项添加配置
+     */
+    adbOptions {
+
+        // 配置操作超时时间，时间单位毫秒
+        timeOutInMs 5 * 1000_0
+
+        // adb install 命令配置
+        installOptions '-r', '-s'
+    }
+
+    /**
+     * 执行 gradle lint 命令即可运行 lint 检查，默认生成的报告在outputs/lint-results.html中
+     */
     lintOptions {
+
         checkReleaseBuilds false
+
+        // 遇到 lint 检查错误是否终止构建，一般设置为false
         abortOnError false
+
+        // 将警告当做错误处理（老版本 warningAsErrors）
+        warningsAsErrors false
+
+        // 检查新Api
+        check 'NewApi'
     }
 
     aaptOptions {
-        cruncherEnabled = false
+        cruncherEnabled false
     }
 
-/*    repositories {
-        flatDir {
+    /**
+     * 对dx操作的配置，接受一个DexOptions类型的闭包，配置由DexOptions提供
+     */
+    dexOptions {
 
-        }
-    }*/
+        // 配置执行 dx 命令时为其分配的最大内存
+        javaMaxHeapSize '4g'
+
+        // 配置是否预执行 dex Libraries 工程，开启后会提高增量构建速度，会影响clean构建的速度，默认为true
+        preDexLibraries false
+
+        // 配置是否开启 jumbo 模式，代码方法数超过65535时，需要强制开启才能构建成功
+        jumboMode true
+
+        // 配置Gradle运行dx命令时使用的线程数
+        threadCount 8
+
+        // 配置 multidex 参数
+        additionalParameters = [
+                '--multi-dex',  // 多dex分包
+                '--set-max-idx-number=5000',    // 每个包内方法数上限
+//                '--main-dex-list=' + '/multidex-config.txt',     // 打包到主 classes.dex 的文件列表
+                '--minimal-main-dex'
+        ]
+    }
 
     packagingOptions {
         exclude 'META-INF/DEPENDENCIES'
@@ -75,7 +182,9 @@ android {
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
+
     implementation deps.support.appcompat_v7
+
     implementation deps.view.constraint
 
     implementation project(':module_common')
