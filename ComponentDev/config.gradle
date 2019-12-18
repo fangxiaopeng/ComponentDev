@@ -4,6 +4,14 @@
  * 用于统一配置各module的构建版本、库依赖等
  */
 
+/*********************************************** 以下为应用配置 ***********************************************/
+def android = [:]
+android.appId = 'com.fxp.module_homepage'
+android.appName = '个人主页'
+android.versionCode = 1
+android.versionName = '1.0'
+ext.android = android
+
 /*********************************************** 以下为构建版本配置 ***********************************************/
 def buildVersions = [:]
 buildVersions.minSdk = 15
