@@ -4,6 +4,8 @@
  * 用于统一配置各module的构建版本、库依赖等
  */
 
+ext.isRelease = true
+
 /*********************************************** 以下为应用配置 ***********************************************/
 def android = [:]
 android.appId = 'com.fxp.module_homepage'
@@ -45,22 +47,18 @@ support.v4_fragment = "com.android.support:support-fragment:$versions.support"
 support.glide = "com.github.bumptech.glide:glide:$versions.glide"
 support.gson = "com.google.code.gson:gson:$versions.gson"
 support.multidex = "com.android.support:multidex:$versions.multidex"
-
-
 deps.support = support
 /*********************************** 依赖配置 - view    ***********************************/
 def view = [:]
 view.constraint = "com.android.support.constraint:constraint-layout:$versions.constraint_layout"
 view.recyclerview = "com.android.support:recyclerview-v7:$versions.support"
 view.material_design = "com.android.support:design:$versions.support"
-
 deps.view = view
 
 /*********************************** 依赖配置 - reactivex    ***********************************/
 def reactivex = [:]
 reactivex.rxandroid = "io.reactivex.rxjava2:rxandroid:$versions.rxandroid"
 reactivex.rxjava = "io.reactivex.rxjava2:rxjava:$versions.rxjava"
-
 deps.reactivex = reactivex
 
 /*********************************** 依赖配置 - monitor    ***********************************/
@@ -69,8 +67,6 @@ monitor.blockcanary = "com.github.markzhai:blockcanary-android:$versions.blockca
 monitor.leakcanary_android = "com.squareup.leakcanary:leakcanary-android:$versions.leakcanary"
 monitor.leakcanary_android_no_op = "com.squareup.leakcanary:leakcanary-android-no-op:$versions.leakcanary"
 monitor.leakcanary_support_fragment = "com.squareup.leakcanary:leakcanary-support-fragment:$versions.leakcanary"
-
 deps.monitor = monitor
-
 
 ext.deps = deps

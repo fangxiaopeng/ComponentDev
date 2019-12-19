@@ -1,5 +1,7 @@
 apply plugin: 'com.android.application'
 
+println("app --> print test")
+
 def releaseDate() {
     return new Date().format("yyyy_MM_dd", TimeZone.getTimeZone("UTC"))
 //    return new Date().format("yyyy-MM-dd aa hh:mm:ss", TimeZone.getTimeZone("UTC"))
@@ -36,8 +38,12 @@ android {
 
         /**
          * 自定义变量
+         * 三个非空参数：值类型、key、value（必须String）
+         * 不能在 android 根节点，只能在 defaultConfig 或 buildTypes 节点下
          */
         buildConfigField "String", "BUILD_TIME", "\"${releaseDate()}\""
+
+        buildConfigField "boolean", "isRelease", String.valueOf(isRelease)
 
         /**
          * 根据包名更改manifest配置
@@ -50,7 +56,7 @@ android {
             manifestPlaceholders = [fxpExcludeFromRecents: true, fxpTaskAffinity: applicationId, fxpApplicationIcon: "@mipmap/icon_launcher_homepage"]
         }
 
-        signingConfig signingConfigs.release    // signingConfigs 须在 defaultConfig之前定义，否则会报错
+        signingConfig signingConfigs.release    // signingConfigs 须在 defaultConfig 之前定义，否则会报错
 
         multiDexEnabled true     // 是否开启分包
 
@@ -102,7 +108,15 @@ android {
 
     sourceSets {
         main {
+            if(isRelease){
+                manifest.srcFile 'src/main/AndroidManifest.xml'
+                java.srcDirs = ['src/main/java']
+                res.srcDirs = ['src/main/res']
+                assets.srcDirs = ['src/main/assets']
+                aidl.srcDirs = ['src/main/aidl']
+            } else {
 
+            }
         }
 
         productA.res.srcDirs = ['src/main/res-A']
@@ -141,6 +155,15 @@ android {
         check 'NewApi'
     }
 
+    /**
+     * AaptOptions的属性：
+     * 1.additionalParameters:额外参数，List类型。
+     * 2.cruncherEnabled：如果PNG图片是否可以大量快速的处理，boolean类型。 true表示可以。
+     * 3.cruncherProcesses:快速处理，可能需要更多的内存和CPU。int类型。默认0，值越大处理越快，需要的内存和CPU也越大。
+     * 4.failOnMissingConfigEntry:如果没有找到一个配置，就返回一个错误。Boolean值，默认false。
+     * 5.ignoreAssetsPattern：忽略Assets模块。
+     * 6.moCompress：拓展文件不会打包进apk中。
+     */
     aaptOptions {
         cruncherEnabled false
     }
@@ -185,13 +208,19 @@ dependencies {
 
     implementation deps.support.appcompat_v7
 
-    implementation deps.view.constraint
+//    implementation deps.view.constraint
+
+    /**
+     * 遍历引入 support 库
+     */
+    deps.support.each { k, v -> implementation v }
 
     implementation project(':module_common')
 
-    implementation project(':module_homepage')
-
-    implementation project(':module_personalpage')
-
     implementation project(':module_cordova')
+
+    if (isRelease){
+        implementation project(':module_homepage')
+        implementation project(':module_personalpage')
+    }
 }
