@@ -18,6 +18,11 @@ android {
         main {
             if (isModule.toBoolean()) {
                 manifest.srcFile 'src/main/module/AndroidManifest.xml'
+
+                java {
+                    // debug 目录下文件不合并到主工程
+                    exclude '**/debug/**'
+                }
             } else {
                 manifest.srcFile 'src/main/AndroidManifest.xml'
             }
